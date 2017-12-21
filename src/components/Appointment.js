@@ -1,10 +1,14 @@
 import React from "react";
 
-const Appointment = () => {
+const Appointment = appointment => {
+  const height = `${appointment.duration * 3}px`;
   return (
     <div>
-      <button style={{ height: "100px" }} class="ui button">
-        Walk Dog
+      <button
+        style={{ width: "150px", height: `${height}` }}
+        class="ui orange button"
+      >
+        {appointment.name}
       </button>
     </div>
   );

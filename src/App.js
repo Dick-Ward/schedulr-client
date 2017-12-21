@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import DayContainer from "./containers/DayContainer";
-import Appointment from "./components/Appointment";
+import appointments from "./data";
+import times from "./dayta";
 
 class App extends Component {
+  state = {
+    appointments: appointments,
+    times: times
+  };
   render() {
     return (
       <div>
-        <DayContainer />
-        <Appointment />
+        <DayContainer
+          times={this.state.times}
+          appointments={this.state.appointments}
+        />
       </div>
     );
   }
