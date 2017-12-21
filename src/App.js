@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import DayGrid from "./components/DayGrid";
+import DayContainer from "./containers/DayContainer";
+import Appointment from "./components/Appointment";
+
 class App extends Component {
   render() {
     return (
       <div>
-        <DayGrid />
+        <DayContainer />
+        <Appointment />
       </div>
     );
   }
