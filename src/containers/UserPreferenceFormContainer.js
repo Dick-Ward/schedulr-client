@@ -1,10 +1,10 @@
 import React from "react";
+import UserPreferenceForm from "../components/UserPreferenceForm";
 
 class UserPreferenceFormContainer extends React.Component {
   render() {
-    return <div>hi from pref form cont</div>;
+    return <UserPreferenceForm />;
   }
 }
 
 export default UserPreferenceFormContainer;
-
