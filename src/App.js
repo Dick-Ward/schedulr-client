@@ -8,10 +8,22 @@ class App extends Component {
     appointments: appointments,
     times: times
   };
+
+  createAppointment = appointment => {
+    const prevstate = this.state.appointments.slice();
+    prevstate.push(appointment);
+    this.setState({
+      appointments: prevstate
+    });
+
+    console.log(this.state.appointments);
+  };
+
   render() {
     return (
       <div>
         <DayContainer
+          createAppointment={this.createAppointment}
           times={this.state.times}
           appointments={this.state.appointments}
         />

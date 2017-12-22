@@ -10,10 +10,6 @@ const appointments = [
   {
     name: "Study",
     duration: "15"
-  },
-  {
-    name: "Yard Work",
-    duration: "80"
   }
 ];
 

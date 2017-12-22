@@ -1,27 +1,29 @@
 import React from "react";
+import AppointmentForm from "../components/AppointmentForm";
 
 class AppointmentFormContainer extends React.Component {
+  state = {
+    name: "",
+    duration: ""
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.createAppointment(this.state);
+  };
+
   render() {
     return (
-      <div class="ui form">
-        <div class="field">
-          <label>
-            Task Name <input type="text" name="name" />
-          </label>
-        </div>
-        <div class="field">
-          <label>Duration</label>
-          <select class="ui search dropdown">
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="60">75 minutes</option>
-            <option value="60">90 minutes</option>
-            <option value="60">105 minutes</option>
-            <option value="60">120 minutes</option>
-          </select>
-        </div>
+      <div>
+        <AppointmentForm
+          name={this.state.name}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
