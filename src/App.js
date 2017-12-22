@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import DayContainer from "./containers/DayContainer";
 import appointments from "./data";
-import times from "./dayta";
 
 class App extends Component {
   state = {
     appointments: appointments,
-    times: times
+    preference: { startTime: "6:00am", endTime: "10:00pm" }
   };
 
   createAppointment = appointment => {
@@ -15,16 +14,20 @@ class App extends Component {
     this.setState({
       appointments: prevstate
     });
+  };
 
-    console.log(this.state.appointments);
+  setTimes = times => {
+    this.setState({ preference: times });
   };
 
   render() {
     return (
       <div>
         <DayContainer
+          handleChange={this.handleChange}
+          setTimes={this.setTimes}
           createAppointment={this.createAppointment}
-          times={this.state.times}
+          preference={this.state.preference}
           appointments={this.state.appointments}
         />
       </div>

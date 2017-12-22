@@ -1,9 +1,12 @@
 import React from "react";
 import Time from "./Time";
+import times from "../dayta";
 
 const DayList = props => {
-  const { times } = props;
-  const time = times.map(time => {
+  const start = times.indexOf(props.startTime);
+  const end = times.indexOf(props.endTime);
+  const timeSlice = times.slice(start, end + 1);
+  const time = timeSlice.map(time => {
     return (
       <tbody>
         <tr>

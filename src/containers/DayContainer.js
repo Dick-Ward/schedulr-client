@@ -8,8 +8,11 @@ class DayContainer extends React.Component {
   render() {
     return (
       <div class="ui very padded text container">
-        <DayGrid times={this.props.times} />
-        <UserPreferenceFormContainer />
+        <DayGrid preference={this.props.preference} />
+        <UserPreferenceFormContainer
+          handleChange={this.props.handleChange}
+          setTimes={this.props.setTimes}
+        />
         {/* <AppointmentFormContainer
           createAppointment={this.props.createAppointment}
         />

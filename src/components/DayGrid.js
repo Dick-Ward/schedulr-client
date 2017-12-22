@@ -2,6 +2,7 @@ import React from "react";
 import DayList from "./DayList";
 
 const DayGrid = props => {
+  const { preference } = props;
   return (
     <div
       style={{
@@ -17,7 +18,7 @@ const DayGrid = props => {
         <a class="item">Forward ></a>
       </div>
 
-      <DayList times={props.times} />
+      <DayList startTime={preference.startTime} endTime={preference.endTime} />
 
       <div class="ui bottom attached inverted segment">Do I need this?</div>
     </div>
