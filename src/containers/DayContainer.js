@@ -13,10 +13,10 @@ class DayContainer extends React.Component {
           handleChange={this.props.handleChange}
           setTimes={this.props.setTimes}
         />
-        {/* <AppointmentFormContainer
+        <AppointmentFormContainer
           createAppointment={this.props.createAppointment}
         />
-        <AppointmentList appointments={this.props.appointments} /> */}
+        <AppointmentList appointments={this.props.appointments} />
       </div>
     );
   }
