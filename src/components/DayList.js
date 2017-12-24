@@ -26,7 +26,14 @@ const DayList = props => {
   });
 
   return (
-    <table class="ui attached compact striped inverted table">
+    <table
+      class="ui attached compact striped inverted table"
+      style={{
+        border: "solid",
+        borderColor: "white",
+        borderSize: "1px"
+      }}
+    >
       <thead>
         <th class="center aligned">Thursday, December 20th</th>
       </thead>

@@ -1,26 +1,44 @@
 import React from "react";
 import DayList from "./DayList";
+import AppointentFormContainer from "../containers/AppointmentFormContainer";
 
 const DayGrid = props => {
   const { preference } = props;
   return (
-    <div
-      style={{
-        height: "600px",
-        width: "400px",
-        overflowY: "scroll",
-        overflowX: "hidden"
-      }}
-    >
+    <div>
       <div class="ui top attached three item inverted menu">
-        <a class="item">&lt; Back</a>
-        <a class="item">Today</a>
-        <a class="item">Forward ></a>
+        <a class="item" style={{ backgroundColor: "#313131" }}>
+          &lt; Back
+        </a>
+        <a class="item" style={{ backgroundColor: "#3D3D3D" }}>
+          Today
+        </a>
+        <a class="item" style={{ backgroundColor: "#313131" }}>
+          Forward >
+        </a>
       </div>
+      <div
+        style={{
+          height: "600px",
+          width: "auto",
+          overflowY: "scroll",
+          overflowX: "hidden"
+        }}
+      >
+        <DayList
+          startTime={preference.startTime}
+          endTime={preference.endTime}
+        />
+      </div>
+      <div class="ui bottom attached inverted segment">
+        <div class="two ui buttons">
+          <div class="ui button"> Create New Appointment </div>
 
-      <DayList startTime={preference.startTime} endTime={preference.endTime} />
-
-      <div class="ui bottom attached inverted segment">Do I need this?</div>
+          <div style={{ marginLeft: "1px" }} class="ui button">
+            Change Wake/Sleep Times
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

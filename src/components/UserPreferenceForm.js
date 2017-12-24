@@ -6,9 +6,9 @@ const UserPreferenceForm = props => {
 
   return (
     <form class="ui form" onSubmit={props.setTime}>
-      <div class="two fields">
-        <div class="field">
-          <label>Wake Time</label>
+      <div class="field">
+        <label>
+          Wake Time
           <select
             onChange={props.handleChange}
             class="ui basic dropdown"
@@ -17,9 +17,11 @@ const UserPreferenceForm = props => {
             <option value="">Select Wakeup Time</option>
             {time}
           </select>
-        </div>
-        <div class="field">
-          <label>Bed Time</label>
+        </label>
+      </div>
+      <div class="field">
+        <label>
+          Bed Time
           <select
             onChange={props.handleChange}
             class="ui basic dropdown"
@@ -28,12 +30,12 @@ const UserPreferenceForm = props => {
             <option value="">Select Bed Time</option>
             {time}
           </select>
-        </div>
-        <div class="field">
-          <button class="ui button" type="submit">
-            Submit
-          </button>
-        </div>
+        </label>
+      </div>
+      <div class="field">
+        <button class="ui button" type="submit">
+          Submit
+        </button>
       </div>
     </form>
   );

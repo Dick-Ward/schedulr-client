@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import DayContainer from "./containers/DayContainer";
 import appointments from "./data";
+import Navbar from "./components/Navbar";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
 
 class App extends Component {
   state = {
@@ -23,6 +26,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Navbar />
+        </div>
         <DayContainer
           handleChange={this.handleChange}
           setTimes={this.setTimes}
@@ -35,4 +41,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

@@ -17,10 +17,12 @@ class UserPreferenceFormContainer extends React.Component {
   };
   render() {
     return (
-      <UserPreferenceForm
-        setTime={this.setTime}
-        handleChange={this.handleChange}
-      />
+      <div class="ui raised segment" style={{ backgroundColor: "#404E5C" }}>
+        <UserPreferenceForm
+          setTime={this.setTime}
+          handleChange={this.handleChange}
+        />
+      </div>
     );
   }
 }

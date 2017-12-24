@@ -18,7 +18,7 @@ class AppointmentFormContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="ui raised segment" style={{ backgroundColor: "#404E5C" }}>
         <AppointmentForm
           name={this.state.name}
           handleChange={this.handleChange}

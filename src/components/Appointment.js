@@ -5,7 +5,12 @@ const Appointment = appointment => {
   return (
     <div>
       <button
-        style={{ width: "150px", height: `${height}` }}
+        style={{
+          color: "#F4FAFF",
+          margin: "1px",
+          width: "150px",
+          height: `${height}`
+        }}
         class="ui orange button"
       >
         {appointment.name}
