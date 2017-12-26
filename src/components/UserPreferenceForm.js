@@ -7,7 +7,7 @@ const UserPreferenceForm = props => {
   return (
     <form class="ui form" onSubmit={props.setTime}>
       <div class="field">
-        <label>
+        <label style={{ color: "#F4FAFF" }}>
           Wake Time
           <select
             onChange={props.handleChange}
@@ -20,7 +20,7 @@ const UserPreferenceForm = props => {
         </label>
       </div>
       <div class="field">
-        <label>
+        <label style={{ color: "#F4FAFF" }}>
           Bed Time
           <select
             onChange={props.handleChange}

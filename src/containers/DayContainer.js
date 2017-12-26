@@ -5,28 +5,53 @@ import AppointmentFormContainer from "./AppointmentFormContainer";
 import UserPreferenceFormContainer from "./UserPreferenceFormContainer";
 
 class DayContainer extends React.Component {
+  state = {
+    active: null
+  };
+
+  handleClick = event => {
+    if (event.target.id === "newAppointment") {
+      this.setState({
+        active: (
+          <AppointmentFormContainer
+            createAppointment={this.props.createAppointment}
+            handleClose={this.handleClose}
+          />
+        )
+      });
+    } else if (event.target.id === "newPreference") {
+      this.setState({
+        active: (
+          <UserPreferenceFormContainer
+            handleChange={this.props.handleChange}
+            setTimes={this.props.setTimes}
+            handleClose={this.handleClose}
+          />
+        )
+      });
+    }
+  };
+
+  handleClose = e => {
+    console.log(e);
+    this.setState({ active: null });
+  };
+
   render() {
     return (
       <div class="ui column stackable grid container">
         <div class="eight wide column">
-          <DayGrid preference={this.props.preference} />
+          <DayGrid
+            handleClick={this.handleClick}
+            preference={this.props.preference}
+          />
         </div>
         <div class="eight wide column">
           <div class="ui column grid container">
             <div class="eight wide column">
               <AppointmentList appointments={this.props.appointments} />
             </div>
-            <div class="eight wide column">
-              <AppointmentFormContainer
-                createAppointment={this.props.createAppointment}
-              />
-              <div class="row">
-                <UserPreferenceFormContainer
-                  handleChange={this.props.handleChange}
-                  setTimes={this.props.setTimes}
-                />
-              </div>
-            </div>
+            <div class="eight wide column">{this.state.active}</div>
           </div>
         </div>
       </div>
