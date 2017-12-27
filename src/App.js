@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
 import DayContainer from "./containers/DayContainer";
 import appointments from "./data";
 import Navbar from "./components/Navbar";
-import HTML5Backend from "react-dnd-html5-backend";
-import { DragDropContext } from "react-dnd";
 import LoginForm from "./components/LoginForm";
 
 class App extends Component {

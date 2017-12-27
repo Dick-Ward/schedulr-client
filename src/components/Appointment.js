@@ -1,8 +1,10 @@
 import React from "react";
+import { DragSource } from "react-dnd";
+import ItemTypes from "../ItemTypes";
 
-const Appointment = appointment => {
-  const height = `${appointment.duration * 3}px`;
-  return (
+const Appointment = ({ connectDragSource, children, ...appointment }) => {
+  const height = `${appointment.duration * 2.2}px`;
+  return connectDragSource(
     <div>
       <button
         style={{
@@ -12,11 +14,26 @@ const Appointment = appointment => {
           height: `${height}`
         }}
         class="ui orange button"
+        id={appointment.id}
       >
         {appointment.name}
       </button>
     </div>
   );
 };
+const appointmentSource = {
+  beginDrag(props) {
+    console.log("dragging", props.id);
+    return { appointmentID: props.id };
+  }
+};
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
 
-export default Appointment;
+export default DragSource(ItemTypes.APPOINTMENT, appointmentSource, collect)(
+  Appointment
+);
