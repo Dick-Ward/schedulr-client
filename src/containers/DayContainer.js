@@ -33,7 +33,6 @@ class DayContainer extends React.Component {
   };
 
   handleClose = e => {
-    console.log(e);
     this.setState({ active: null });
   };
 

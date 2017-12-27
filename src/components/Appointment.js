@@ -23,7 +23,6 @@ const Appointment = ({ connectDragSource, children, ...appointment }) => {
 };
 const appointmentSource = {
   beginDrag(props) {
-    console.log("dragging", props.id);
     return { appointmentID: props.id };
   }
 };

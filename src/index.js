@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+import { observe } from "./Observer";
 
-ReactDOM.render(<App />, document.getElementById("root"));
-registerServiceWorker();
+observe(appointmentPosition => {
+  ReactDOM.render(
+    <App appointmentPosition={appointmentPosition} />,
+    document.getElementById("root")
+  );
+});
