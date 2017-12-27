@@ -3,7 +3,9 @@ import React from "react";
 const LoginForm = () => {
   return (
     <div
-      style={{ backgroundColor: "#F4FAFF" }}
+      style={{
+        backgroundColor: "#F4FAFF"
+      }}
       class="ui raised text container segment"
     >
       <form class="ui equal width form">

@@ -18,7 +18,15 @@ class AppointmentFormContainer extends React.Component {
 
   render() {
     return (
-      <div class="ui raised segment" style={{ backgroundColor: "#404E5C" }}>
+      <div
+        class="ui raised segment"
+        style={{
+          backgroundColor: "#404E5C",
+          position: "absolute",
+          right: "-250px",
+          width: "30vw"
+        }}
+      >
         <a onClick={this.props.handleClose} class="ui right corner label">
           <i onClick={this.props.handleClose} class="delete icon" />
         </a>

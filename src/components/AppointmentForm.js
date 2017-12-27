@@ -4,7 +4,11 @@ const AppointmentForm = props => {
   return (
     <form onSubmit={props.handleSubmit} className="ui form">
       <div className="field">
-        <label style={{ color: "#F4FAFF" }}>
+        <label
+          style={{
+            color: "#F4FAFF"
+          }}
+        >
           Task Name
           <input
             onChange={props.handleChange}

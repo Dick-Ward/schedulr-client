@@ -1,6 +1,7 @@
 import React from "react";
 import Time from "./Time";
 import times from "../dayta";
+import moment from "moment";
 
 const DayList = props => {
   const start = times.indexOf(props.startTime);
@@ -35,7 +36,7 @@ const DayList = props => {
       }}
     >
       <thead>
-        <th class="center aligned">Thursday, December 20th</th>
+        <th class="center aligned">{moment().format("dddd, MMMM YYYY")}</th>
       </thead>
       {time}
     </table>

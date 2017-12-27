@@ -49,9 +49,27 @@ class DayContainer extends React.Component {
         </div>
         <div class="eight wide column">
           <div class="ui column grid container">
-            <div class="eight wide column" />
-            
-            <div class="eight wide column">{this.state.active}</div>
+            <div class="four wide column" />
+
+            <div
+              class="ui button"
+              id="newAppointment"
+              onClick={this.handleClick}
+            >
+              Create New Appointment
+            </div>
+
+            <div
+              style={{ marginLeft: "1px" }}
+              class="ui button"
+              id="newPreference"
+              onClick={this.handleClick}
+            >
+              Change Wake/Sleep Times
+            </div>
+            <div class="row">
+              <div class="eight wide column">{this.state.active}</div>
+            </div>
           </div>
         </div>
       </div>

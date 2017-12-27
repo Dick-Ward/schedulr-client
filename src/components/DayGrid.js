@@ -39,27 +39,6 @@ const DayGrid = props => {
           </div>
         </div>
       </div>
-
-      <div class="ui bottom attached inverted segment">
-        <div class="two ui buttons">
-          <div
-            class="ui button"
-            id="newAppointment"
-            onClick={props.handleClick}
-          >
-            Create New Appointment
-          </div>
-
-          <div
-            style={{ marginLeft: "1px" }}
-            class="ui button"
-            id="newPreference"
-            onClick={props.handleClick}
-          >
-            Change Wake/Sleep Times
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
