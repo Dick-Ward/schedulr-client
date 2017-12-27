@@ -32,6 +32,7 @@ class App extends Component {
         </div>
 
         <DayContainer
+          style={{ height: "100vh" }}
           handleChange={this.handleChange}
           setTimes={this.setTimes}
           createAppointment={this.createAppointment}

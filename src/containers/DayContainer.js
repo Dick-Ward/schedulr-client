@@ -44,13 +44,13 @@ class DayContainer extends React.Component {
           <DayGrid
             handleClick={this.handleClick}
             preference={this.props.preference}
+            appointments={this.props.appointments}
           />
         </div>
         <div class="eight wide column">
           <div class="ui column grid container">
-            <div class="eight wide column">
-              <AppointmentList appointments={this.props.appointments} />
-            </div>
+            <div class="eight wide column" />
+            
             <div class="eight wide column">{this.state.active}</div>
           </div>
         </div>

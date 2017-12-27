@@ -1,8 +1,10 @@
 import React from "react";
 import DayList from "./DayList";
 import AppointentFormContainer from "../containers/AppointmentFormContainer";
+import AppointmentList from "../components/AppointmentList";
 
 const DayGrid = props => {
+  console.log(props);
   const { preference } = props;
   return (
     <div>
@@ -19,17 +21,25 @@ const DayGrid = props => {
       </div>
       <div
         style={{
-          height: "600px",
+          height: "70vh",
           width: "auto",
           overflowY: "scroll",
           overflowX: "hidden"
         }}
       >
-        <DayList
-          startTime={preference.startTime}
-          endTime={preference.endTime}
-        />
+        <div class="ui column grid container">
+          <div class="ten wide column">
+            <DayList
+              startTime={preference.startTime}
+              endTime={preference.endTime}
+            />
+          </div>
+          <div class="six wide column">
+            <AppointmentList appointments={props.appointments} />
+          </div>
+        </div>
       </div>
+
       <div class="ui bottom attached inverted segment">
         <div class="two ui buttons">
           <div

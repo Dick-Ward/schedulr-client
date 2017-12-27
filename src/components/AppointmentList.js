@@ -3,9 +3,13 @@ import Appointment from "./Appointment";
 
 const AppoinmentList = props => {
   const { appointments } = props;
-  const appointment = appointments.map(appointment => {
+  const appointment = appointments.map((appointment, index) => {
     return (
-      <Appointment name={appointment.name} duration={appointment.duration} />
+      <Appointment
+        key={index}
+        name={appointment.name}
+        duration={appointment.duration}
+      />
     );
   });
   return <div>{appointment}</div>;

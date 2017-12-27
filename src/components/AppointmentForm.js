@@ -2,8 +2,8 @@ import React from "react";
 
 const AppointmentForm = props => {
   return (
-    <form onSubmit={props.handleSubmit} class="ui form">
-      <div class="field">
+    <form onSubmit={props.handleSubmit} className="ui form">
+      <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Task Name
           <input
@@ -14,12 +14,12 @@ const AppointmentForm = props => {
           />
         </label>
       </div>
-      <div class="field">
+      <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Duration
           <select
             onChange={props.handleChange}
-            class="ui search dropdown"
+            className="ui search dropdown"
             name="duration"
           >
             <option value="">Select Duration</option>
@@ -34,8 +34,8 @@ const AppointmentForm = props => {
           </select>
         </label>
       </div>
-      <div class="field">
-        <button class="ui button" type="submit">
+      <div className="field">
+        <button className="ui button" type="submit">
           Submit
         </button>
       </div>
