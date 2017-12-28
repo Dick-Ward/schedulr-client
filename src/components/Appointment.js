@@ -3,10 +3,21 @@ import Draggable, { DraggableCore } from "react-draggable";
 
 const Appointment = appointment => {
   const height = `${appointment.duration * 2.2}px`;
+  const handleStop = (e, f) => {
+    console.log(f.x, f.y);
+  };
+  const handleDoubleClick = () => {
+    console.log("holy shit");
+  };
   return (
-    <Draggable grid={[255, 33.75]} defaultPosition={{ x: 0, y: 48 }}>
+    <Draggable
+      onDrag={handleStop}
+      grid={[255, 33.75]}
+      defaultPosition={{ x: 0, y: 48 }}
+    >
       <div>
         <button
+          onDoubleClick={handleDoubleClick}
           style={{
             color: "#F4FAFF",
             margin: "1px",

@@ -4,7 +4,6 @@ import AppointentFormContainer from "../containers/AppointmentFormContainer";
 import AppointmentList from "../components/AppointmentList";
 
 const DayGrid = props => {
-  console.log(props);
   const { preference } = props;
   return (
     <div>
@@ -39,6 +38,10 @@ const DayGrid = props => {
           </div>
         </div>
       </div>
+      <div
+        class="ui bottom  inverted attached segment"
+        style={{ backgroundColor: "#313131" }}
+      />
     </div>
   );
 };
