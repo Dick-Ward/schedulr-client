@@ -40,10 +40,10 @@ class App extends Component {
   };
 
   createAppointment = appointment => {
-    const prevstate = this.state.appointments.slice();
+    const prevstate = this.state.auth.currentUser.appointments.slice();
     prevstate.push(appointment);
     this.setState({
-      appointments: prevstate
+      auth: { currentUser: { appointments: prevstate } }
     });
   };
 
