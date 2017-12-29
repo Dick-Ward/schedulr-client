@@ -7,7 +7,7 @@ const AppoinmentList = props => {
     return (
       <Appointment
         key={index}
-        name={appointment.name}
+        name={appointment.title}
         duration={appointment.duration}
       />
     );

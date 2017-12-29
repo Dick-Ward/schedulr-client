@@ -36,6 +36,14 @@ const signup = (email, password) => {
   }).then(res => res.json());
 };
 
+const newAppointment = (title, duration, userId) => {
+  return fetch(`${API_ROOT}/appointments/`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({ title, duration, userId })
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
@@ -48,4 +56,3 @@ export default {
     getAppointments
   }
 };
-

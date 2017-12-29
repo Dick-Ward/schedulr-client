@@ -13,6 +13,7 @@ class DayContainer extends React.Component {
       this.setState({
         active: (
           <AppointmentFormContainer
+            currentUser={this.props.currentUser}
             createAppointment={this.props.createAppointment}
             handleClose={this.handleClose}
           />
@@ -22,6 +23,7 @@ class DayContainer extends React.Component {
       this.setState({
         active: (
           <UserPreferenceFormContainer
+            currentUser={this.props.currentUser}
             handleChange={this.props.handleChange}
             setTimes={this.props.setTimes}
             handleClose={this.handleClose}

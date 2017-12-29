@@ -9,17 +9,18 @@ import api from "./services/api";
 
 class App extends Component {
   state = {
-    appointments: appointments,
     preference: { startTime: "6:00am", endTime: "10:00pm" },
-    auth: { currentUser: {} }
+    auth: { currentUser: { appointments: [] } }
   };
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
       api.auth.getCurrentUser().then(user => {
-        console.log(user);
         const currentUser = { currentUser: user };
-        this.setState({ auth: currentUser });
+        this.setState({
+          auth: currentUser,
+          appointments: currentUser.currentUser.appointments
+        });
       });
     } else {
       this.props.history.push("/login");
@@ -28,12 +29,15 @@ class App extends Component {
   handleLogin = user => {
     const currentUser = { currentUser: user };
     localStorage.setItem("token", user.token);
-    this.setState({ auth: currentUser });
+    console.log(currentUser);
+    this.setState({
+      auth: currentUser
+    });
   };
 
   handleLogout = () => {
     localStorage.removeItem("token");
-    this.setState({ auth: { currentUser: {} } });
+    this.setState({ appointments: [], auth: { currentUser: {} } });
   };
 
   createAppointment = appointment => {
@@ -92,7 +96,8 @@ class App extends Component {
                   setTimes={this.setTimes}
                   createAppointment={this.createAppointment}
                   preference={this.state.preference}
-                  appointments={this.state.appointments}
+                  appointments={this.state.auth.currentUser.appointments}
+                  currentUser={this.state.auth.currentUser}
                 />
               );
             }}
