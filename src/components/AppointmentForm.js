@@ -25,6 +25,7 @@ const AppointmentForm = props => {
             onChange={props.handleChange}
             className="ui search dropdown"
             name="duration"
+            value={props.duration}
           >
             <option value="">Select Duration</option>
             <option value="15">15 minutes</option>

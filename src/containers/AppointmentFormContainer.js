@@ -20,7 +20,8 @@ class AppointmentFormContainer extends React.Component {
         this.state.duration,
         this.props.currentUser.id
       )
-      .then(this.props.createAppointment);
+      .then(this.props.createAppointment)
+      .then(this.setState({ name: "", duration: "" }));
   };
 
   render() {
@@ -39,6 +40,7 @@ class AppointmentFormContainer extends React.Component {
         </a>
         <AppointmentForm
           name={this.state.name}
+          duration={this.state.duration}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
