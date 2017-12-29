@@ -1,6 +1,5 @@
 import React from "react";
 import DayGrid from "../components/DayGrid";
-import AppointmentList from "../components/AppointmentList";
 import AppointmentFormContainer from "./AppointmentFormContainer";
 import UserPreferenceFormContainer from "./UserPreferenceFormContainer";
 
@@ -38,21 +37,22 @@ class DayContainer extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
-      <div class="ui column stackable grid container">
-        <div class="eight wide column">
+      <div className="ui column stackable grid container">
+        <div className="eight wide column">
           <DayGrid
             handleClick={this.handleClick}
             preference={this.props.preference}
             appointments={this.props.appointments}
           />
         </div>
-        <div class="eight wide column">
-          <div class="ui column grid container">
-            <div class="four wide column" />
+        <div className="eight wide column">
+          <div className="ui column grid container">
+            <div className="four wide column" />
 
             <div
-              class="ui button"
+              className="ui button"
               id="newAppointment"
               onClick={this.handleClick}
             >
@@ -61,14 +61,14 @@ class DayContainer extends React.Component {
 
             <div
               style={{ marginLeft: "1px" }}
-              class="ui button"
+              className="ui button"
               id="newPreference"
               onClick={this.handleClick}
             >
               Change Wake/Sleep Times
             </div>
-            <div class="row">
-              <div class="eight wide column">{this.state.active}</div>
+            <div className="row">
+              <div className="eight wide column">{this.state.active}</div>
             </div>
           </div>
         </div>

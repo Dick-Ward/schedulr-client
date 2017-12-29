@@ -10,6 +10,7 @@
     "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.2.0",
     "react-draggable": "^3.0.4",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "semantic-ui": "^2.2.13",
     "semantic-ui-react": "^0.77.1"
