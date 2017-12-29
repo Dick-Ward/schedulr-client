@@ -14,7 +14,13 @@ class AppointmentFormContainer extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createAppointment(this.state);
+    api.appointments
+      .newAppointment(
+        this.state.name,
+        this.state.duration,
+        this.props.currentUser.id
+      )
+      .then(this.props.createAppointment);
   };
 
   render() {

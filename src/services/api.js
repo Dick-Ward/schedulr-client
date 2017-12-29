@@ -36,11 +36,11 @@ const signup = (email, password) => {
   }).then(res => res.json());
 };
 
-const newAppointment = (title, duration, userId) => {
+const newAppointment = (title, duration, user_id) => {
   return fetch(`${API_ROOT}/appointments/`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ title, duration, userId })
+    body: JSON.stringify({ appointment: { title, duration, user_id } })
   }).then(res => res.json());
 };
 
@@ -53,6 +53,7 @@ export default {
     signup
   },
   appointments: {
-    getAppointments
+    getAppointments,
+    newAppointment
   }
 };

@@ -18,7 +18,6 @@ class LoginFormContainer extends React.Component {
       if (res.error) {
         this.setState({ error: true });
       } else {
-        console.log(res);
         this.props.handleLogin(res);
         this.props.history.push("/");
       }
