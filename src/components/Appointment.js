@@ -1,5 +1,5 @@
 import React from "react";
-import Draggable, { DraggableCore } from "react-draggable";
+import Draggable from "react-draggable";
 
 const Appointment = appointment => {
   const height = `${appointment.duration * 2.2}px`;
@@ -24,7 +24,7 @@ const Appointment = appointment => {
             width: "150px",
             height: `${height}`
           }}
-          class="ui orange button"
+          className="ui orange button"
         >
           {appointment.name}
         </button>

@@ -7,20 +7,20 @@ const DayList = props => {
   const start = times.indexOf(props.startTime);
   const end = times.indexOf(props.endTime);
   const timeSlice = times.slice(start, end + 1);
-  const time = timeSlice.map(time => {
+  const time = timeSlice.map((time, index) => {
     return (
-      <tbody>
+      <tbody key={index}>
         <tr>
           <Time time={time} />
         </tr>
         <tr>
-          <td class="center aligned">-- 15 --</td>
+          <td className="center aligned">-- 15 --</td>
         </tr>
         <tr>
-          <td class="center aligned">-- 30 --</td>
+          <td className="center aligned">-- 30 --</td>
         </tr>
         <tr>
-          <td class="center aligned">-- 45 --</td>
+          <td className="center aligned">-- 45 --</td>
         </tr>
       </tbody>
     );
@@ -28,7 +28,7 @@ const DayList = props => {
 
   return (
     <table
-      class="ui attached compact striped inverted table"
+      className="ui attached compact striped inverted table"
       style={{
         border: "solid",
         borderColor: "white",
@@ -36,7 +36,9 @@ const DayList = props => {
       }}
     >
       <thead>
-        <th class="center aligned">{moment().format("dddd, MMMM YYYY")}</th>
+        <tr className="center aligned">
+          <td>{moment().format("dddd, MMMM YYYY")}</td>
+        </tr>
       </thead>
       {time}
     </table>

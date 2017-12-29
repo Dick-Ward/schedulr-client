@@ -5,13 +5,13 @@ const UserPreferenceForm = props => {
   const time = times.map(time => <option value={time}>{time}</option>);
 
   return (
-    <form class="ui form" onSubmit={props.setTime}>
-      <div class="field">
+    <form className="ui form" onSubmit={props.setTime}>
+      <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Wake Time
           <select
             onChange={props.handleChange}
-            class="ui basic dropdown"
+            className="ui basic dropdown"
             name="startTime"
           >
             <option value="">Select Wakeup Time</option>
@@ -19,12 +19,12 @@ const UserPreferenceForm = props => {
           </select>
         </label>
       </div>
-      <div class="field">
+      <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Bed Time
           <select
             onChange={props.handleChange}
-            class="ui basic dropdown"
+            className="ui basic dropdown"
             name="endTime"
           >
             <option value="">Select Bed Time</option>
@@ -32,8 +32,8 @@ const UserPreferenceForm = props => {
           </select>
         </label>
       </div>
-      <div class="field">
-        <button class="ui button" type="submit">
+      <div className="field">
+        <button className="ui button" type="submit">
           Submit
         </button>
       </div>

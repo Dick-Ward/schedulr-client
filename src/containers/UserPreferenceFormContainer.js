@@ -18,7 +18,7 @@ class UserPreferenceFormContainer extends React.Component {
   render() {
     return (
       <div
-        class="ui raised segment"
+        className="ui raised segment"
         style={{
           backgroundColor: "#404E5C",
           position: "absolute",
@@ -26,8 +26,8 @@ class UserPreferenceFormContainer extends React.Component {
           width: "30vw"
         }}
       >
-        <a onClick={this.props.handleClose} class="ui right corner label">
-          <i onClick={this.props.handleClose} class="delete icon" />
+        <a onClick={this.props.handleClose} className="ui right corner label">
+          <i onClick={this.props.handleClose} className="delete icon" />
         </a>
         <UserPreferenceForm
           setTime={this.setTime}

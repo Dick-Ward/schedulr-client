@@ -31,8 +31,6 @@ class SignupFormContainer extends React.Component {
         password={this.state.password}
         onSubmit={this.handleSubmit}
         handleChange={this.handleChange}
-        email={this.state.email}
-        password={this.state.password}
       />
     );
   }

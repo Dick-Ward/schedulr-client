@@ -75,7 +75,4 @@ class DayContainer extends React.Component {
   }
 }
 
-{
-}
-
 export default DayContainer;
