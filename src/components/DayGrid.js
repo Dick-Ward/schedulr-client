@@ -3,7 +3,8 @@ import DayList from "./DayList";
 import AppointmentList from "../components/AppointmentList";
 
 const DayGrid = props => {
-  const { preference } = props;
+  const { currentUser } = props;
+
   return (
     <div>
       <div className="ui top attached three item inverted menu">
@@ -28,12 +29,12 @@ const DayGrid = props => {
         <div className="ui column grid container">
           <div className="ten wide column">
             <DayList
-              startTime={preference.startTime}
-              endTime={preference.endTime}
+              startTime={currentUser.start_time}
+              endTime={currentUser.end_time}
             />
           </div>
           <div className="six wide column">
-            <AppointmentList appointments={props.appointments} />
+            <AppointmentList appointments={currentUser.appointments} />
           </div>
         </div>
       </div>

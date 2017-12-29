@@ -13,7 +13,7 @@ const Appointment = appointment => {
     <Draggable
       onDrag={handleStop}
       grid={[255, 33.75]}
-      defaultPosition={{ x: 0, y: 48 }}
+      defaultPosition={{ x: 0, y: 67.5 }}
     >
       <div>
         <button

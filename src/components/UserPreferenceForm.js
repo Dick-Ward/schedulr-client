@@ -2,7 +2,11 @@ import React from "react";
 import times from "../dayta";
 
 const UserPreferenceForm = props => {
-  const time = times.map(time => <option value={time}>{time}</option>);
+  const time = times.map((time, index) => (
+    <option key={index} value={time}>
+      {time}
+    </option>
+  ));
 
   return (
     <form className="ui form" onSubmit={props.setTime}>

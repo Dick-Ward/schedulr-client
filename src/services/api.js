@@ -8,12 +8,6 @@ const headers = {
   Authorization: token
 };
 
-const getAppointments = () => {
-  return fetch(`${API_ROOT}/appointments/`, { headers: headers }).then(res =>
-    res.json()
-  );
-};
-
 const login = (email, password) => {
   return fetch(`${API_ROOT}/auth/`, {
     method: "POST",
@@ -36,6 +30,14 @@ const signup = (email, password) => {
   }).then(res => res.json());
 };
 
+const update = (id, start_time, end_time) => {
+  return fetch(`${API_ROOT}/users/${id}`, {
+    method: "PATCH",
+    headers: headers,
+    body: JSON.stringify({ start_time, end_time })
+  }).then(res => res.json());
+};
+
 const newAppointment = (title, duration, user_id) => {
   return fetch(`${API_ROOT}/appointments/`, {
     method: "POST",
@@ -50,10 +52,10 @@ export default {
     getCurrentUser
   },
   users: {
-    signup
+    signup,
+    update
   },
   appointments: {
-    getAppointments,
     newAppointment
   }
 };

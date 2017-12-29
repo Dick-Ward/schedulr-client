@@ -8,8 +8,13 @@ import api from "./services/api";
 
 class App extends Component {
   state = {
-    preference: { startTime: "6:00am", endTime: "10:00pm" },
-    auth: { currentUser: { appointments: [] } }
+    auth: {
+      currentUser: {
+        appointments: [],
+        start_time: "6:00am",
+        end_time: "10:00pm"
+      }
+    }
   };
   componentDidMount() {
     const token = localStorage.getItem("token");
@@ -17,8 +22,7 @@ class App extends Component {
       api.auth.getCurrentUser().then(user => {
         const currentUser = { currentUser: user };
         this.setState({
-          auth: currentUser,
-          appointments: currentUser.currentUser.appointments
+          auth: currentUser
         });
       });
     } else {
@@ -42,12 +46,27 @@ class App extends Component {
     const prevstate = this.state.auth.currentUser.appointments.slice();
     prevstate.push(appointment);
     this.setState({
-      auth: { currentUser: { appointments: prevstate } }
+      auth: {
+        currentUser: { ...this.state.auth.currentUser, appointments: prevstate }
+      }
     });
   };
 
-  setTimes = times => {
-    this.setState({ preference: times });
+  setTimes = time => {
+    api.users.update(
+      this.state.auth.currentUser.id,
+      time.startTime,
+      time.endTime
+    );
+    this.setState({
+      auth: {
+        currentUser: {
+          ...this.state.auth.currentUser,
+          start_time: time.startTime,
+          end_time: time.endTime
+        }
+      }
+    });
   };
 
   render() {
@@ -93,8 +112,6 @@ class App extends Component {
                   handleChange={this.handleChange}
                   setTimes={this.setTimes}
                   createAppointment={this.createAppointment}
-                  preference={this.state.preference}
-                  appointments={this.state.auth.currentUser.appointments}
                   currentUser={this.state.auth.currentUser}
                 />
               );
