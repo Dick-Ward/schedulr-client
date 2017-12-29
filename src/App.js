@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DayContainer from "./containers/DayContainer";
-import appointments from "./data";
 import Navbar from "./components/Navbar";
 import LoginFormContainer from "./containers/LoginFormContainer";
 import SignupFormContainer from "./containers/SignupFormContainer";
