@@ -1,8 +1,11 @@
 const API_ROOT = "http://localhost:3000";
 
+const token = localStorage.getItem("token");
+
 const headers = {
   "Content-Type": "application/json",
-  Acccepts: "application/json"
+  Acccepts: "application/json",
+  Authorization: token
 };
 
 const getAppointments = () => {
@@ -19,6 +22,12 @@ const login = (email, password) => {
   }).then(res => res.json());
 };
 
+const getCurrentUser = () => {
+  return fetch(`${API_ROOT}/current_user/`, {
+    headers: headers
+  }).then(res => res.json());
+};
+
 const signup = (email, password) => {
   return fetch(`${API_ROOT}/users/`, {
     method: "POST",
@@ -29,7 +38,8 @@ const signup = (email, password) => {
 
 export default {
   auth: {
-    login
+    login,
+    getCurrentUser
   },
   users: {
     signup

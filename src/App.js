@@ -4,7 +4,8 @@ import appointments from "./data";
 import Navbar from "./components/Navbar";
 import LoginFormContainer from "./containers/LoginFormContainer";
 import SignupFormContainer from "./containers/SignupFormContainer";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
+import api from "./services/api";
 
 class App extends Component {
   state = {
@@ -12,12 +13,25 @@ class App extends Component {
     preference: { startTime: "6:00am", endTime: "10:00pm" },
     auth: { currentUser: {} }
   };
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      api.auth.getCurrentUser().then(user => {
+        const currentUser = { currentUser: user };
+        this.setState({ auth: currentUser });
+      });
+    } else {
+      this.props.history.push("/login");
+    }
+  }
   handleLogin = user => {
     const currentUser = { currentUser: user };
+    localStorage.setItem("token", user.token);
     this.setState({ auth: currentUser });
   };
 
   handleLogout = () => {
+    localStorage.removeItem("token");
     this.setState({ auth: { currentUser: {} } });
   };
 
@@ -88,4 +102,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

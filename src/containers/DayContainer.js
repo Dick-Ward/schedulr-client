@@ -32,12 +32,10 @@ class DayContainer extends React.Component {
   };
 
   handleClose = e => {
-    console.log(e);
     this.setState({ active: null });
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="ui column stackable grid container">
         <div className="eight wide column">

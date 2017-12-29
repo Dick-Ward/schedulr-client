@@ -7,7 +7,7 @@ const Appointment = appointment => {
     console.log(f.x, f.y);
   };
   const handleDoubleClick = () => {
-    console.log("holy shit");
+    console.log("double clicked!");
   };
   return (
     <Draggable
