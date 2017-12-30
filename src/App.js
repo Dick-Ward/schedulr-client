@@ -39,7 +39,7 @@ class App extends Component {
 
   handleLogout = () => {
     localStorage.removeItem("token");
-    this.setState({ appointments: [], auth: { currentUser: {} } });
+    this.setState({ auth: { currentUser: {} } });
   };
 
   createAppointment = appointment => {

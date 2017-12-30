@@ -1,14 +1,17 @@
 import React from "react";
-import Appointment from "./Appointment";
+import AppointmentContainer from "../containers/AppointmentContainer";
 
 const AppoinmentList = props => {
   const { appointments } = props;
   const appointment = appointments.map((appointment, index) => {
     return (
-      <Appointment
+      <AppointmentContainer
         key={index}
+        id={appointment.id}
         name={appointment.title}
         duration={appointment.duration}
+        x={appointment.x}
+        y={appointment.y}
       />
     );
   });
