@@ -4,7 +4,7 @@ import { Button, Form, Dropdown } from "semantic-ui-react";
 const AppointmentForm = props => {
   const times = [15, 30, 45, 60, 75, 90, 105, 120];
   const timeMap = times.map(time => {
-    return { text: `${time} minutes`, value: `${time} minutes` };
+    return { text: `${time} minutes`, value: `${time}` };
   });
   return (
     <Form onSubmit={props.handleSubmit}>
@@ -27,11 +27,10 @@ const AppointmentForm = props => {
         <label style={{ color: "#F4FAFF" }}>Duration</label>
         <Dropdown
           placeholder="Select a Duration"
-          fluid
           selection
-          onChange={props.handleChange}
-          name="duration"
           options={timeMap}
+          onChange={props.handleSelect}
+          name="duration"
         />
       </div>
       <div className="field">

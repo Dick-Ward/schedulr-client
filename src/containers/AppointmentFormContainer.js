@@ -12,6 +12,10 @@ class AppointmentFormContainer extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleSelect = (e, value) => {
+    this.setState({ [value.name]: value.value });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     api.appointments
@@ -43,6 +47,7 @@ class AppointmentFormContainer extends React.Component {
           duration={this.state.duration}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleSelect={this.handleSelect}
         />
       </div>
     );
