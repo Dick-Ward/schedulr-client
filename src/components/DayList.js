@@ -14,13 +14,13 @@ const DayList = props => {
           <Time time={time} />
         </tr>
         <tr>
-          <td className="center aligned">-- 15 --</td>
+          <td className="left aligned"> &nbsp; :15</td>
         </tr>
         <tr>
-          <td className="center aligned">-- 30 --</td>
+          <td className="left aligned"> &nbsp; :30</td>
         </tr>
         <tr>
-          <td className="center aligned">-- 45 --</td>
+          <td className="left aligned"> &nbsp; :45</td>
         </tr>
       </tbody>
     );

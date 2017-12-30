@@ -13,6 +13,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "semantic-ui": "^2.2.13",
+    "semantic-ui-modal": "^2.2.12",
     "semantic-ui-react": "^0.77.1"
   },
   "scripts": {

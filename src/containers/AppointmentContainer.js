@@ -1,11 +1,13 @@
 import React from "react";
 import Appointment from "../components/Appointment";
 import api from "../services/api";
+import { Button, Header, Icon, Modal } from "semantic-ui-react";
 
 class AppointmentContainer extends React.Component {
   state = {
     x: 0,
-    y: 67.5
+    y: 67.5,
+    modalOpen: false
   };
 
   componentDidMount() {
@@ -21,17 +23,19 @@ class AppointmentContainer extends React.Component {
   };
   render() {
     const handleDoubleClick = () => {
-      console.log("double clicked!");
+      this.setState({ modalOpen: true });
     };
 
     return (
       <Appointment
+        handleDoubleClick={handleDoubleClick}
         handleStop={this.handleStop}
         name={this.props.name}
         id={this.props.id}
         x={this.state.x}
         y={this.state.y}
         duration={this.props.duration}
+        modalOpen={this.state.modalOpen}
       />
     );
   }

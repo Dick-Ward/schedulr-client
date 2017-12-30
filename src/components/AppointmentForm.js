@@ -1,8 +1,13 @@
 import React from "react";
+import { Button, Form, Dropdown } from "semantic-ui-react";
 
 const AppointmentForm = props => {
+  const times = [15, 30, 45, 60, 75, 90, 105, 120];
+  const timeMap = times.map(time => {
+    return { text: `${time} minutes`, value: `${time} minutes` };
+  });
   return (
-    <form onSubmit={props.handleSubmit} className="ui form">
+    <Form onSubmit={props.handleSubmit}>
       <div className="field">
         <label
           style={{
@@ -19,32 +24,20 @@ const AppointmentForm = props => {
         </label>
       </div>
       <div className="field">
-        <label style={{ color: "#F4FAFF" }}>
-          Duration
-          <select
-            onChange={props.handleChange}
-            className="ui search dropdown"
-            name="duration"
-            value={props.duration}
-          >
-            <option value="">Select Duration</option>
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="75">75 minutes</option>
-            <option value="90">90 minutes</option>
-            <option value="105">105 minutes</option>
-            <option value="120">120 minutes</option>
-          </select>
-        </label>
+        <label style={{ color: "#F4FAFF" }}>Duration</label>
+        <Dropdown
+          placeholder="Select a Duration"
+          fluid
+          selection
+          onChange={props.handleChange}
+          name="duration"
+          options={timeMap}
+        />
       </div>
       <div className="field">
-        <button className="ui button" type="submit">
-          Submit
-        </button>
+        <Button type="submit">Submit</Button>
       </div>
-    </form>
+    </Form>
   );
 };
 
