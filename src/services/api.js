@@ -61,6 +61,13 @@ const updateAppointment = (id, title, duration) => {
   }).then(res => res.json());
 };
 
+const deleteAppointment = id => {
+  return fetch(`${API_ROOT}/appointments/${id}`, {
+    method: "DELETE",
+    headers: headers
+  });
+};
+
 export default {
   auth: {
     login,
@@ -73,6 +80,7 @@ export default {
   appointments: {
     newAppointment,
     updateAppointmentLocation,
-    updateAppointment
+    updateAppointment,
+    deleteAppointment
   }
 };

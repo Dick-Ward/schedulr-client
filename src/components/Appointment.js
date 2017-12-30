@@ -61,6 +61,15 @@ const Appointment = props => {
               </div>
               <div className="field">
                 <Button type="submit">Submit</Button>
+
+                <Button
+                  id={props.id}
+                  onClick={props.handleDelete}
+                  negative
+                  floated="right"
+                >
+                  Delete
+                </Button>
               </div>
             </Form>
           </Modal.Content>

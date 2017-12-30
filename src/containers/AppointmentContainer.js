@@ -1,7 +1,6 @@
 import React from "react";
 import Appointment from "../components/Appointment";
 import api from "../services/api";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
 
 class AppointmentContainer extends React.Component {
   state = {
@@ -20,6 +19,11 @@ class AppointmentContainer extends React.Component {
     this.setState({ [value.name]: value.value });
   };
 
+  handleDelete = e => {
+    console.log(e);
+    api.appointments.deleteAppointment(e.target.id);
+  };
+
   componentDidMount() {
     this.setState({
       x: this.props.x,
@@ -28,7 +32,7 @@ class AppointmentContainer extends React.Component {
       duration: this.props.duration
     });
   }
-  handleSubmit = (e, f) => {
+  handleSubmit = e => {
     api.appointments.updateAppointment(
       e.target.id,
       this.state.name,
@@ -60,6 +64,7 @@ class AppointmentContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleSelect={this.handleSelect}
+        handleDelete={this.handleDelete}
       />
     );
   }
