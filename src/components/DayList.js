@@ -37,7 +37,7 @@ const DayList = props => {
     >
       <thead>
         <tr className="center aligned">
-          <td>{moment().format("dddd, MMMM YYYY")}</td>
+          <td>{moment().format("dddd, MMMM Do YYYY")}</td>
         </tr>
       </thead>
       {time}
