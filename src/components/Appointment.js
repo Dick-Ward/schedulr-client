@@ -1,9 +1,14 @@
 import React from "react";
 import Draggable from "react-draggable";
-import { Button, Form, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Form, Header, Dropdown, Modal } from "semantic-ui-react";
+import AppointmentForm from "./AppointmentForm";
 
 const Appointment = props => {
   const height = `${props.duration * 2.2}px`;
+  const times = [15, 30, 45, 60, 75, 90, 105, 120];
+  const timeMap = times.map(time => {
+    return { text: `${time} minutes`, value: `${time}` };
+  });
 
   return (
     <Draggable
@@ -28,15 +33,35 @@ const Appointment = props => {
         <Modal size="tiny" open={props.modalOpen}>
           <Modal.Header>Edit Appointment</Modal.Header>
           <Modal.Content>
-            <Form>
-              <Form.Field>
-                <label>Title</label>
-                <input placeholder="Title" />
-              </Form.Field>
-              <Form.Field>
-                <label>First Name</label>
-                <input placeholder="First Name" />
-              </Form.Field>
+            <Form id={props.id} onSubmit={props.handleSubmit}>
+              <div className="field">
+                <label
+                  style={{
+                    color: "#F4FAFF"
+                  }}
+                >
+                  Task Name
+                  <input
+                    onChange={props.handleChange}
+                    type="text"
+                    name="name"
+                    value={props.name}
+                  />
+                </label>
+              </div>
+              <div className="field">
+                <label style={{ color: "#F4FAFF" }}>Duration</label>
+                <Dropdown
+                  placeholder="Select a Duration"
+                  selection
+                  options={timeMap}
+                  onChange={props.handleSelect}
+                  name="duration"
+                />
+              </div>
+              <div className="field">
+                <Button type="submit">Submit</Button>
+              </div>
             </Form>
           </Modal.Content>
         </Modal>

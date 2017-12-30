@@ -53,6 +53,13 @@ const updateAppointmentLocation = (id, x, y) => {
     body: JSON.stringify({ x, y })
   }).then(res => res.json());
 };
+const updateAppointment = (id, title, duration) => {
+  return fetch(`${API_ROOT}/appointments/${id}`, {
+    method: "PATCH",
+    headers: headers,
+    body: JSON.stringify({ title, duration })
+  }).then(res => res.json());
+};
 
 export default {
   auth: {
@@ -65,6 +72,7 @@ export default {
   },
   appointments: {
     newAppointment,
-    updateAppointmentLocation
+    updateAppointmentLocation,
+    updateAppointment
   }
 };
