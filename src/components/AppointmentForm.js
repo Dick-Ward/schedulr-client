@@ -31,6 +31,7 @@ const AppointmentForm = props => {
           options={timeMap}
           onChange={props.handleSelect}
           name="duration"
+          value={props.duration}
         />
       </div>
       <div className="field">

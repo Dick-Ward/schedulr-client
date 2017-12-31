@@ -25,6 +25,7 @@ class AppointmentContainer extends React.Component {
   };
 
   componentDidMount() {
+    // console.log(`x: ${this.props.x}, y: ${this.props.y}`);
     this.setState({
       x: this.props.x,
       y: this.props.y,
@@ -43,17 +44,24 @@ class AppointmentContainer extends React.Component {
   handleStop = (e, f) => {
     const y = Math.round(f.y / 33.75) * 33.75;
     const x = Math.round(f.x / 255) * 255;
+    console.log(`${f.node.firstChild.id} x:${x}, y:${y}`);
     api.appointments.updateAppointmentLocation(f.node.firstChild.id, x, y);
     this.setState({ x: x, y: y });
+    // console.log(` x: ${x}, y: ${y}`);
   };
-  render() {
-    const handleDoubleClick = () => {
-      this.setState({ modalOpen: true });
-    };
 
+  handleDoubleClick = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  handleClose = () => {
+    this.setState({ modalOpen: false });
+  };
+
+  render() {
     return (
       <Appointment
-        handleDoubleClick={handleDoubleClick}
+        handleDoubleClick={this.handleDoubleClick}
         handleStop={this.handleStop}
         name={this.state.name}
         id={this.props.id}
@@ -65,6 +73,7 @@ class AppointmentContainer extends React.Component {
         handleChange={this.handleChange}
         handleSelect={this.handleSelect}
         onDelete={this.onDelete}
+        handleClose={this.handleClose}
       />
     );
   }

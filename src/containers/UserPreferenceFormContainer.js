@@ -14,6 +14,7 @@ class UserPreferenceFormContainer extends React.Component {
     const startTime = this.state.startTime;
     const endTime = this.state.endTime;
     this.props.setTimes({ startTime, endTime });
+    this.props.handleClose();
   };
   render() {
     return (

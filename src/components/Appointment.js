@@ -1,7 +1,6 @@
 import React from "react";
 import Draggable from "react-draggable";
-import { Button, Form, Header, Dropdown, Modal } from "semantic-ui-react";
-import AppointmentForm from "./AppointmentForm";
+import { Button, Form, Dropdown, Modal } from "semantic-ui-react";
 
 const Appointment = props => {
   const height = `${props.duration * 2.2}px`;
@@ -15,9 +14,11 @@ const Appointment = props => {
       onStop={props.handleStop}
       grid={[255, 33.75]}
       position={{ x: props.x, y: props.y }}
+      id={props.id}
     >
       <div>
-        <button
+        <Button
+          color="orange"
           onDoubleClick={props.handleDoubleClick}
           id={props.id}
           style={{
@@ -26,13 +27,15 @@ const Appointment = props => {
             width: "150px",
             height: `${height}`
           }}
-          className="ui orange button"
         >
           {props.name}
-        </button>
+        </Button>
         <Modal size="tiny" open={props.modalOpen}>
           <Modal.Header>Edit Appointment</Modal.Header>
           <Modal.Content>
+            <a onClick={props.handleClose} className="ui right corner label">
+              <i onClick={props.handleClose} className="delete icon" />
+            </a>
             <Form id={props.id} onSubmit={props.handleSubmit}>
               <div className="field">
                 <label
@@ -57,20 +60,16 @@ const Appointment = props => {
                   options={timeMap}
                   onChange={props.handleSelect}
                   name="duration"
+                  value={props.duration}
                 />
               </div>
               <div className="field">
+                <Button id={props.id} onClick={props.onDelete} negative>
+                  Delete
+                </Button>
                 <button className="ui button" type="submit">
                   Submit
                 </button>
-                <Button
-                  id={props.id}
-                  onClick={props.onDelete}
-                  negative
-                  floated="right"
-                >
-                  Delete
-                </Button>
               </div>
             </Form>
           </Modal.Content>
