@@ -17,6 +17,7 @@ class App extends Component {
     }
   };
   componentDidMount() {
+    console.log(this.props);
     const token = localStorage.getItem("token");
     if (token) {
       api.auth.getCurrentUser().then(user => {

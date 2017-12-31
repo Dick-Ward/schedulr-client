@@ -2,6 +2,7 @@ import React from "react";
 import DayGrid from "../components/DayGrid";
 import AppointmentFormContainer from "./AppointmentFormContainer";
 import UserPreferenceFormContainer from "./UserPreferenceFormContainer";
+import { Button } from "semantic-ui-react";
 
 class DayContainer extends React.Component {
   state = {
@@ -40,35 +41,32 @@ class DayContainer extends React.Component {
   render() {
     return (
       <div className="ui column stackable grid container">
-        <div className="eight wide column">
+        <div className="twelve wide column">
           <DayGrid
             handleClick={this.handleClick}
             currentUser={this.props.currentUser}
             handleDelete={this.props.handleDelete}
           />
         </div>
-        <div className="eight wide column">
+        <div className="four wide column">
           <div className="ui column grid container">
-            <div className="four wide column" />
-
-            <div
-              className="ui button"
+            <Button
+              style={{ marginTop: "1px", marginLeft: "1px" }}
               id="newAppointment"
               onClick={this.handleClick}
             >
               Create New Appointment
-            </div>
+            </Button>
 
-            <div
-              style={{ marginLeft: "1px" }}
-              className="ui button"
+            <Button
+              style={{ marginTop: "1px", marginLeft: "1px" }}
               id="newPreference"
               onClick={this.handleClick}
             >
               Change Wake/Sleep Times
-            </div>
+            </Button>
             <div className="row">
-              <div className="eight wide column">{this.state.active}</div>
+              <div className="four wide column">{this.state.active}</div>
             </div>
           </div>
         </div>

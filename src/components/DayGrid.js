@@ -6,7 +6,7 @@ const DayGrid = props => {
   const { currentUser } = props;
 
   return (
-    <div>
+    <div style={{ width: "550px", minWidth: "550px" }}>
       <div className="ui top attached three item inverted menu">
         <a className="item" style={{ backgroundColor: "#313131" }}>
           &lt; Back
