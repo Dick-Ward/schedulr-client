@@ -19,9 +19,9 @@ class AppointmentContainer extends React.Component {
     this.setState({ [value.name]: value.value });
   };
 
-  handleDelete = e => {
-    console.log(e);
+  onDelete = e => {
     api.appointments.deleteAppointment(e.target.id);
+    this.props.handleDelete(e.target.id);
   };
 
   componentDidMount() {
@@ -64,7 +64,7 @@ class AppointmentContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleSelect={this.handleSelect}
-        handleDelete={this.handleDelete}
+        onDelete={this.onDelete}
       />
     );
   }

@@ -52,6 +52,19 @@ class App extends Component {
     });
   };
 
+  handleDelete = id => {
+    const prevstate = this.state.auth.currentUser.appointments.slice();
+    const newState = prevstate.filter(a => a.id.toString() !== id);
+    this.setState({
+      auth: {
+        currentUser: {
+          ...this.state.auth.currentUser,
+          appointments: newState
+        }
+      }
+    });
+  };
+
   setTimes = time => {
     api.users.update(
       this.state.auth.currentUser.id,
@@ -113,6 +126,7 @@ class App extends Component {
                   setTimes={this.setTimes}
                   createAppointment={this.createAppointment}
                   currentUser={this.state.auth.currentUser}
+                  handleDelete={this.handleDelete}
                 />
               );
             }}

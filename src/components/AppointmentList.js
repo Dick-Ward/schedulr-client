@@ -12,6 +12,7 @@ const AppoinmentList = props => {
         duration={appointment.duration}
         x={appointment.x}
         y={appointment.y}
+        handleDelete={props.handleDelete}
       />
     );
   });

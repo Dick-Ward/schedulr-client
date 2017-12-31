@@ -60,11 +60,12 @@ const Appointment = props => {
                 />
               </div>
               <div className="field">
-                <Button type="submit">Submit</Button>
-
+                <button className="ui button" type="submit">
+                  Submit
+                </button>
                 <Button
                   id={props.id}
-                  onClick={props.handleDelete}
+                  onClick={props.onDelete}
                   negative
                   floated="right"
                 >

@@ -34,7 +34,10 @@ const DayGrid = props => {
             />
           </div>
           <div className="six wide column">
-            <AppointmentList appointments={currentUser.appointments} />
+            <AppointmentList
+              appointments={currentUser.appointments}
+              handleDelete={props.handleDelete}
+            />
           </div>
         </div>
       </div>

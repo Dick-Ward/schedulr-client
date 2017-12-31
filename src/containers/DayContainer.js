@@ -44,6 +44,7 @@ class DayContainer extends React.Component {
           <DayGrid
             handleClick={this.handleClick}
             currentUser={this.props.currentUser}
+            handleDelete={this.props.handleDelete}
           />
         </div>
         <div className="eight wide column">
