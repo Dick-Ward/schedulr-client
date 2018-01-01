@@ -25,7 +25,6 @@ class AppointmentContainer extends React.Component {
   };
 
   componentDidMount() {
-    // console.log(`x: ${this.props.x}, y: ${this.props.y}`);
     this.setState({
       x: this.props.x,
       y: this.props.y,
@@ -41,13 +40,27 @@ class AppointmentContainer extends React.Component {
     );
     this.setState({ modalOpen: false });
   };
+
+  siblingCheck = (f, offset) => {
+    let siblingLength = offset;
+    if (f.previousSibling) {
+      siblingLength += f.previousSibling.offsetHeight;
+      if (f.previousSibling.previousSibling) {
+        return this.siblingCheck(f.previousSibling, siblingLength);
+      }
+    }
+    return siblingLength;
+  };
   handleStop = (e, f) => {
-    const y = Math.round(f.y / 33.75) * 33.75;
-    const x = Math.round(f.x / 255) * 255;
-    console.log(`${f.node.firstChild.id} x:${x}, y:${y}`);
+    const winY = f.node.firstChild.getBoundingClientRect().y;
+    const scroll =
+      f.node.parentElement.parentElement.parentElement.parentElement
+        .parentElement.scrollTop;
+
+    const y = winY - 87 + scroll;
+    const x = this.state.x + Math.round(f.x / 255) * 255;
+
     api.appointments.updateAppointmentLocation(f.node.firstChild.id, x, y);
-    this.setState({ x: x, y: y });
-    // console.log(` x: ${x}, y: ${y}`);
   };
 
   handleDoubleClick = () => {
