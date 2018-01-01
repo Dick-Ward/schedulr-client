@@ -1,39 +1,38 @@
 import React from "react";
 import times from "../dayta";
+import { Dropdown } from "semantic-ui-react";
 
 const UserPreferenceForm = props => {
-  const time = times.map((time, index) => (
-    <option key={index} value={time}>
-      {time}
-    </option>
-  ));
+  const timeMap = times.map(time => {
+    return { text: `${time}`, value: `${time}` };
+  });
 
   return (
     <form className="ui form" onSubmit={props.setTime}>
       <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Wake Time
-          <select
+          <Dropdown
+            selection
+            placeholder="Select a Wake Time"
             onChange={props.handleChange}
-            className="ui basic dropdown"
             name="startTime"
-          >
-            <option value="">Select Wakeup Time</option>
-            {time}
-          </select>
+            options={timeMap}
+            value={props.startTime}
+          />
         </label>
       </div>
       <div className="field">
         <label style={{ color: "#F4FAFF" }}>
           Bed Time
-          <select
+          <Dropdown
+            selection
+            placeholder="Select a Bed Time"
             onChange={props.handleChange}
-            className="ui basic dropdown"
             name="endTime"
-          >
-            <option value="">Select Bed Time</option>
-            {time}
-          </select>
+            options={timeMap}
+            value={props.endTime}
+          />
         </label>
       </div>
       <div className="field">

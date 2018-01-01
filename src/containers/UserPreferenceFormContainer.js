@@ -3,11 +3,15 @@ import UserPreferenceForm from "../components/UserPreferenceForm";
 
 class UserPreferenceFormContainer extends React.Component {
   state = {
-    startTime: "6:00am",
-    endTime: "10:00pm"
+    startTime: "",
+    endTime: ""
   };
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  componentDidMount() {
+    this.setState({ startTime: "6:00am", endTime: "10:00pm" });
+  }
+  handleChange = (e, value) => {
+    console.log(value);
+    this.setState({ [value.name]: value.value });
   };
   setTime = event => {
     event.preventDefault();
@@ -33,6 +37,8 @@ class UserPreferenceFormContainer extends React.Component {
         <UserPreferenceForm
           setTime={this.setTime}
           handleChange={this.handleChange}
+          startTime={this.state.startTime}
+          endTime={this.state.endTime}
         />
       </div>
     );
