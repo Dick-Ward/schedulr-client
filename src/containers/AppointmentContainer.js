@@ -54,8 +54,7 @@ class AppointmentContainer extends React.Component {
   handleStop = (e, f) => {
     const winY = f.node.firstChild.getBoundingClientRect().y;
     const scroll =
-      f.node.parentElement.parentElement.parentElement.parentElement
-        .parentElement.scrollTop;
+      f.node.parentElement.parentElement.parentElement.parentElement.scrollTop;
 
     const y = winY - 87 + scroll;
     const x = this.state.x + Math.round(f.x / 255) * 255;
