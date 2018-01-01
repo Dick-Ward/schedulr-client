@@ -21,11 +21,10 @@ const Appointment = props => {
       <Draggable onStop={props.handleStop} grid={[255, 33.75]} id={props.id}>
         <div>
           <Button
-            color="orange"
+            className="orange-button"
             onDoubleClick={props.handleDoubleClick}
             id={props.id}
             style={{
-              color: "#F4FAFF",
               margin: "1px",
               width: "150px",
               height: `${height}`

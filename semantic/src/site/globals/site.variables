@@ -1,1 +1,4 @@
-@orange            : #B03060;
+ui.orange.button {
+  background-color: #734322;
+  color: #fff;
+}

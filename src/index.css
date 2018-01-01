@@ -5,3 +5,11 @@ body {
   background-color: black;
   background-image: url("https://hdwallsource.com/img/2014/4/free-background-wallpaper-22918-23554-hd-wallpapers.jpg");
 }
+
+.orange-button {
+  background-color: RGBa(240, 113, 45, 0.8) !important;
+}
+.orange-button:active {
+  border: solid;
+  border-color: RGBa(240, 240, 240, 0.5) !important;
+}
