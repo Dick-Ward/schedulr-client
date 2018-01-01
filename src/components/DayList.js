@@ -1,7 +1,6 @@
 import React from "react";
 import Time from "./Time";
 import times from "../dayta";
-import moment from "moment";
 import { Table } from "semantic-ui-react";
 
 const DayList = props => {
@@ -39,9 +38,7 @@ const DayList = props => {
       }}
     >
       <thead>
-        <tr className="center aligned">
-          <td>{moment().format("dddd, MMMM Do YYYY")}</td>
-        </tr>
+        <tr className="center aligned" />
       </thead>
       {time}
     </Table>

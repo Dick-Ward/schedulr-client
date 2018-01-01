@@ -46,6 +46,7 @@ class DayContainer extends React.Component {
             handleClick={this.handleClick}
             currentUser={this.props.currentUser}
             handleDelete={this.props.handleDelete}
+            quote={this.props.quote}
           />
         </div>
         <div className="four wide column">

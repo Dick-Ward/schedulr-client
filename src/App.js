@@ -5,6 +5,7 @@ import LoginFormContainer from "./containers/LoginFormContainer";
 import SignupFormContainer from "./containers/SignupFormContainer";
 import { Route, Switch, withRouter } from "react-router-dom";
 import api from "./services/api";
+import quotes from "./quotes";
 
 class App extends Component {
   state = {
@@ -14,15 +15,22 @@ class App extends Component {
         start_time: "6:00am",
         end_time: "10:00pm"
       }
-    }
+    },
+    quote: ""
   };
+
+  quote = () => {
+    return quotes[Math.round(Math.random() * 9)];
+  };
+
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
       api.auth.getCurrentUser().then(user => {
         const currentUser = { currentUser: user };
         this.setState({
-          auth: currentUser
+          auth: currentUser,
+          quote: this.quote()
         });
       });
     } else {
@@ -127,6 +135,7 @@ class App extends Component {
                   createAppointment={this.createAppointment}
                   currentUser={this.state.auth.currentUser}
                   handleDelete={this.handleDelete}
+                  quote={this.state.quote}
                 />
               );
             }}
