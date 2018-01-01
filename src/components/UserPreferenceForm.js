@@ -11,7 +11,7 @@ const UserPreferenceForm = props => {
     <form className="ui form" onSubmit={props.setTime}>
       <div className="field">
         <label style={{ color: "#F4FAFF" }}>
-          Wake Time:
+          Wake Time: <br />
           <Dropdown
             selection
             placeholder="Select a Wake Time"
@@ -24,7 +24,7 @@ const UserPreferenceForm = props => {
       </div>
       <div className="field">
         <label style={{ color: "#F4FAFF" }}>
-          Bed Time:
+          Bed Time: <br />
           <Dropdown
             selection
             placeholder="Select a Bed Time"

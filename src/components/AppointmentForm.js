@@ -6,8 +6,9 @@ const AppointmentForm = props => {
   const timeMap = times.map(time => {
     return { text: `${time} minutes`, value: `${time}` };
   });
+
   return (
-    <Form onSubmit={props.handleSubmit}>
+    <Form error onSubmit={props.handleSubmit}>
       <div className="field">
         <label
           style={{
@@ -37,6 +38,7 @@ const AppointmentForm = props => {
       <div className="field">
         <Button type="submit">Submit</Button>
       </div>
+      {props.errorMessage}
     </Form>
   );
 };

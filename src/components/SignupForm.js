@@ -40,6 +40,7 @@ const SignupForm = props => {
           Submit
         </button>
       </form>
+      {props.errorMessage}
     </div>
   );
 };

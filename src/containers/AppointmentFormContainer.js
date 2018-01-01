@@ -1,11 +1,14 @@
 import React from "react";
 import AppointmentForm from "../components/AppointmentForm";
 import api from "../services/api";
+import { Message } from "semantic-ui-react";
 
 class AppointmentFormContainer extends React.Component {
   state = {
     name: "",
-    duration: ""
+    duration: "",
+    error: false,
+    errorMessage: null
   };
 
   handleChange = event => {
@@ -18,14 +21,30 @@ class AppointmentFormContainer extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    api.appointments
-      .newAppointment(
-        this.state.name,
-        this.state.duration,
-        this.props.currentUser.id
+    if (this.state.name === "" || this.state.duration === "") {
+      this.handleError();
+    } else {
+      api.appointments
+        .newAppointment(
+          this.state.name,
+          this.state.duration,
+          this.props.currentUser.id
+        )
+        .then(this.props.createAppointment)
+        .then(this.setState({ name: "", duration: "", errorMessage: "" }));
+    }
+  };
+
+  handleError = e => {
+    this.setState({
+      errorMessage: (
+        <Message
+          error
+          header="Error"
+          content="Make sure you enter a name and select a duration!"
+        />
       )
-      .then(this.props.createAppointment)
-      .then(this.setState({ name: "", duration: "" }));
+    });
   };
 
   render() {
@@ -48,6 +67,7 @@ class AppointmentFormContainer extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleSelect={this.handleSelect}
+          errorMessage={this.state.errorMessage}
         />
       </div>
     );
