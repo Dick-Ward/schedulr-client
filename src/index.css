@@ -7,7 +7,7 @@ body {
 }
 
 .orange-button {
-  background-color: RGBa(240, 113, 45, 0.8) !important;
+  background-color: RGBa(240, 113, 45, 0.85) !important;
 }
 .orange-button:active {
   border: solid;

@@ -2,6 +2,7 @@ import React from "react";
 import Time from "./Time";
 import times from "../dayta";
 import moment from "moment";
+import { Table } from "semantic-ui-react";
 
 const DayList = props => {
   const start = times.indexOf(props.startTime);
@@ -27,8 +28,10 @@ const DayList = props => {
   });
 
   return (
-    <table
-      className="ui attached compact striped inverted table"
+    <Table
+      compact
+      striped
+      inverted
       style={{
         border: "solid",
         borderColor: "white",
@@ -41,7 +44,7 @@ const DayList = props => {
         </tr>
       </thead>
       {time}
-    </table>
+    </Table>
   );
 };
 

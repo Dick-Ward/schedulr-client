@@ -42,7 +42,7 @@ const DayGrid = props => {
         </div>
       </div>
       <div
-        className="ui bottom  inverted attached segment"
+        className="ui bottom inverted attached segment"
         style={{ backgroundColor: "#313131" }}
       />
     </div>
