@@ -5,7 +5,7 @@ import api from "../services/api";
 class AppointmentContainer extends React.Component {
   state = {
     x: 0,
-    y: 67.5,
+    y: 0,
     modalOpen: false,
     name: "",
     duration: ""
@@ -20,7 +20,6 @@ class AppointmentContainer extends React.Component {
   };
 
   onDelete = e => {
-    console.log(e.target.id);
     this.props.handleDelete(e.target.id);
     api.appointments.deleteAppointment(e.target.id);
   };

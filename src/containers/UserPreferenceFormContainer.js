@@ -10,7 +10,6 @@ class UserPreferenceFormContainer extends React.Component {
     this.setState({ startTime: "6:00am", endTime: "10:00pm" });
   }
   handleChange = (e, value) => {
-    console.log(value);
     this.setState({ [value.name]: value.value });
   };
   setTime = event => {
