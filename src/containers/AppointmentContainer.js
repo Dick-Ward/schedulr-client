@@ -20,8 +20,9 @@ class AppointmentContainer extends React.Component {
   };
 
   onDelete = e => {
-    api.appointments.deleteAppointment(e.target.id);
+    console.log(e.target.id);
     this.props.handleDelete(e.target.id);
+    api.appointments.deleteAppointment(e.target.id);
   };
 
   componentDidMount() {

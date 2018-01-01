@@ -11,6 +11,7 @@ const Appointment = props => {
 
   return (
     <div
+      id={props.id}
       style={{
         position: "absolute",
         top: `${props.y}px`,
@@ -66,9 +67,14 @@ const Appointment = props => {
                   />
                 </div>
                 <div className="field">
-                  <Button id={props.id} onClick={props.onDelete} negative>
+                  <button
+                    type="button"
+                    id={props.id}
+                    onClick={props.onDelete}
+                    className="ui negative button"
+                  >
                     Delete
-                  </Button>
+                  </button>
                   <button className="ui button" type="submit">
                     Submit
                   </button>

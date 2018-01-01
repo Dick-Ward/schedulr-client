@@ -53,8 +53,8 @@ class App extends Component {
   };
 
   handleDelete = id => {
-    const prevstate = this.state.auth.currentUser.appointments.slice();
-    const newState = prevstate.filter(a => a.id.toString() !== id);
+    const prevState = this.state.auth.currentUser.appointments.slice();
+    const newState = prevState.filter(a => a.id.toString() !== id);
     this.setState({
       auth: {
         currentUser: {
