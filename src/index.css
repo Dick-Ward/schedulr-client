@@ -11,5 +11,5 @@ body {
 }
 .orange-button:active {
   border: solid;
-  border-color: RGBa(240, 240, 240, 0.5) !important;
+  border-color: RGBa(240, 240, 240, 0.3);
 }

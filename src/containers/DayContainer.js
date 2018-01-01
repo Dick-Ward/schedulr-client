@@ -55,7 +55,7 @@ class DayContainer extends React.Component {
               id="newAppointment"
               onClick={this.handleClick}
             >
-              Create New Appointment
+              Create New Task
             </Button>
 
             <Button
