@@ -7,16 +7,10 @@ const DayGrid = props => {
 
   return (
     <div style={{ width: "550px", minWidth: "550px" }}>
-      <div className="ui top attached three item inverted menu">
-        <a className="item" style={{ backgroundColor: "#313131" }}>
-          &lt; Back
-        </a>
-        <a className="item" style={{ backgroundColor: "#3D3D3D" }}>
-          Today
-        </a>
-        <a className="item" style={{ backgroundColor: "#313131" }}>
-          Forward >
-        </a>
+      <div className="ui top attached one item inverted menu">
+        <div className="item" style={{ backgroundColor: "#313131" }}>
+          No Day But Today
+        </div>
       </div>
       <div
         style={{
