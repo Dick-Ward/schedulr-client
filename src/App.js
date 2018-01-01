@@ -16,11 +16,16 @@ class App extends Component {
         end_time: "10:00pm"
       }
     },
-    quote: ""
+    quote: "",
+    modalOpen: false
   };
 
   quote = () => {
     return quotes[Math.round(Math.random() * 9)];
+  };
+
+  handleClose = () => {
+    this.setState({ modalOpen: false });
   };
 
   componentDidMount() {
@@ -58,6 +63,11 @@ class App extends Component {
         currentUser: { ...this.state.auth.currentUser, appointments: prevstate }
       }
     });
+
+    if (prevstate.length === 1) {
+      console.log("it was");
+      this.setState({ modalOpen: true });
+    }
   };
 
   handleDelete = id => {
@@ -136,6 +146,8 @@ class App extends Component {
                   currentUser={this.state.auth.currentUser}
                   handleDelete={this.handleDelete}
                   quote={this.state.quote}
+                  modalOpen={this.state.modalOpen}
+                  handleClose={this.handleClose}
                 />
               );
             }}

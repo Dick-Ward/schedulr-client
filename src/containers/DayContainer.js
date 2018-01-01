@@ -2,7 +2,7 @@ import React from "react";
 import DayGrid from "../components/DayGrid";
 import AppointmentFormContainer from "./AppointmentFormContainer";
 import UserPreferenceFormContainer from "./UserPreferenceFormContainer";
-import { Button } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 
 class DayContainer extends React.Component {
   state = {
@@ -41,6 +41,19 @@ class DayContainer extends React.Component {
   render() {
     return (
       <div className="ui column stackable grid container">
+        <Modal size="tiny" open={this.props.modalOpen}>
+          <Modal.Header>Did you know?</Modal.Header>
+          <Modal.Content>
+            <a
+              onClick={this.props.handleClose}
+              className="ui right corner label"
+            >
+              <i onClick={this.props.handleClose} className="delete icon" />
+            </a>
+            Hi there! Did you know you can double click on an appointment to
+            edit it? You can!
+          </Modal.Content>
+        </Modal>
         <div className="twelve wide column">
           <DayGrid
             handleClick={this.handleClick}
