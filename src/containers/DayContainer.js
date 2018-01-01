@@ -51,7 +51,7 @@ class DayContainer extends React.Component {
         <div className="four wide column">
           <div className="ui column grid container">
             <Button
-              style={{ marginTop: "1px", marginLeft: "1px" }}
+              style={{ marginTop: "1px", marginLeft: "1px", width: "200px" }}
               id="newAppointment"
               onClick={this.handleClick}
             >
@@ -59,7 +59,7 @@ class DayContainer extends React.Component {
             </Button>
 
             <Button
-              style={{ marginTop: "1px", marginLeft: "1px" }}
+              style={{ marginTop: "1px", marginLeft: "1px", width: "200px" }}
               id="newPreference"
               onClick={this.handleClick}
             >
