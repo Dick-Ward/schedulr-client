@@ -6,6 +6,10 @@ const EditModal = props => {
   const timeMap = times.map(time => {
     return { text: `${time} minutes`, value: `${time}` };
   });
+  const urgencies = ["normal", "break", "urgent"];
+  const urgencyMap = urgencies.map(urgency => {
+    return { text: `${urgency}`, value: `${urgency}` };
+  });
 
   return (
     <Modal size="tiny" open={props.modalOpen}>
@@ -39,6 +43,17 @@ const EditModal = props => {
               onChange={props.handleSelect}
               name="duration"
               value={props.duration}
+            />
+          </div>
+          <div className="field">
+            <label style={{ color: "#F4FAFF" }}>Urgency</label>
+            <Dropdown
+              placeholder="Urgency"
+              selection
+              options={urgencyMap}
+              onChange={props.handleSelect}
+              name="urgency"
+              value={props.urgency}
             />
           </div>
           <div className="field">

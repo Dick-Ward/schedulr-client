@@ -27,7 +27,7 @@ const Appointment = props => {
         }}
       >
         <Button
-          className="orange-button"
+          className={props.urgency}
           onDoubleClick={props.handleDoubleClick}
           id={props.id}
           style={{

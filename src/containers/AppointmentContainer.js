@@ -8,7 +8,8 @@ class AppointmentContainer extends React.Component {
     y: 0,
     modalOpen: false,
     name: "",
-    duration: ""
+    duration: "",
+    urgency: "normal"
   };
 
   handleChange = event => {
@@ -69,6 +70,7 @@ class AppointmentContainer extends React.Component {
   };
 
   render() {
+    const urgency = "normal";
     // right and left bounds make sure users can't move tasks off the board
     const leftBounds = this.state.x === -0 ? -255 : 0;
     const rightBounds = this.state.x === -255 ? 255 : 0;
@@ -91,6 +93,7 @@ class AppointmentContainer extends React.Component {
         leftBounds={leftBounds}
         rightBounds={rightBounds}
         topBounds={topBounds}
+        urgency={this.state.urgency}
       />
     );
   }
