@@ -1,12 +1,12 @@
 import React from "react";
 import Time from "./Time";
-import times from "../dayta";
+import timeList from "../timeList";
 import { Table } from "semantic-ui-react";
 
 const DayList = props => {
-  const start = times.indexOf(props.startTime);
-  const end = times.indexOf(props.endTime);
-  const timeSlice = times.slice(start, end + 1);
+  const start = timeList.indexOf(props.startTime);
+  const end = timeList.indexOf(props.endTime);
+  const timeSlice = timeList.slice(start, end + 1);
   const time = timeSlice.map((time, index) => {
     return (
       <tbody key={index}>

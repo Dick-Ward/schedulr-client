@@ -15,6 +15,7 @@ class AppointmentFormContainer extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  // Since dropdowns work differently in Semantic, I need to use a separate handleSelect
   handleSelect = (e, value) => {
     this.setState({ [value.name]: value.value });
   };

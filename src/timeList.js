@@ -1,4 +1,4 @@
-const times = [
+const timeList = [
   "5:00am",
   "6:00am",
   "7:00am",
@@ -25,4 +25,4 @@ const times = [
   "4:00am"
 ];
 
-export default times;
+export default timeList;

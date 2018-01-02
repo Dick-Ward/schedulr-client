@@ -15,13 +15,14 @@ class AppointmentContainer extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  // Since dropdowns work differently in Semantic, I need to use a separate handleSelect
   handleSelect = (e, value) => {
     this.setState({ [value.name]: value.value });
   };
 
-  onDelete = e => {
-    this.props.handleDelete(e.target.id);
-    api.appointments.deleteAppointment(e.target.id);
+  onDelete = event => {
+    this.props.handleDelete(event.target.id);
+    api.appointments.deleteAppointment(event.target.id);
   };
 
   componentDidMount() {
@@ -40,17 +41,19 @@ class AppointmentContainer extends React.Component {
     );
     this.setState({ modalOpen: false });
   };
-
-  siblingCheck = (f, offset) => {
-    let siblingLength = offset;
-    if (f.previousSibling) {
-      siblingLength += f.previousSibling.offsetHeight;
-      if (f.previousSibling.previousSibling) {
-        return this.siblingCheck(f.previousSibling, siblingLength);
-      }
-    }
-    return siblingLength;
-  };
+  // Returns the measurement of all previous siblings.
+  // May add this to creation so appointments dont' stack
+  // siblingCheck = (f, offset) => {
+  //   let siblingLength = offset;
+  //   if (f.previousSibling) {
+  //     siblingLength += f.previousSibling.offsetHeight;
+  //     if (f.previousSibling.previousSibling) {
+  //       return this.siblingCheck(f.previousSibling, siblingLength);
+  //     }
+  //   }
+  //   return siblingLength;
+  // };
+  //
   handleStop = (e, f) => {
     const winY = f.node.firstChild.getBoundingClientRect().y;
     const scroll =

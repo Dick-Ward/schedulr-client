@@ -1,9 +1,9 @@
 import React from "react";
-import times from "../dayta";
+import timeList from "../timeList";
 import { Dropdown } from "semantic-ui-react";
 
 const UserPreferenceForm = props => {
-  const timeMap = times.map(time => {
+  const timeMap = timeList.map(time => {
     return { text: `${time}`, value: `${time}` };
   });
 
