@@ -39,6 +39,7 @@ const AppointmentForm = props => {
           value={props.duration}
         />
         <div className="field">
+          <br />
           <label style={{ color: "#F4FAFF" }}>Difficulty</label>
           <Dropdown
             selection
