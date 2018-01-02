@@ -72,6 +72,7 @@ class AppointmentContainer extends React.Component {
     // right and left bounds make sure users can't move tasks off the board
     const leftBounds = this.state.x === -0 ? -255 : 0;
     const rightBounds = this.state.x === -255 ? 255 : 0;
+    const topBounds = -this.state.y + 16;
     return (
       <Appointment
         handleDoubleClick={this.handleDoubleClick}
@@ -89,6 +90,7 @@ class AppointmentContainer extends React.Component {
         handleClose={this.handleClose}
         leftBounds={leftBounds}
         rightBounds={rightBounds}
+        topBounds={topBounds}
       />
     );
   }

@@ -68,7 +68,7 @@ const DayGrid = props => {
           padding: "5px",
           borderBottomRightRadius: "20px",
           borderBottomLeftRadius: "20px",
-          
+
           textAlign: "center",
           color: "RGBa(150,150,150, 1)",
           fontStyle: "italic"

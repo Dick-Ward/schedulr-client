@@ -9,7 +9,13 @@ body {
 .orange-button {
   background-color: RGBa(240, 113, 45, 0.85) !important;
 }
-.orange-button:active {
+.blue-button {
+  background-color: RGBa(0, 208, 240, 0.85) !important;
+}
+.red-button {
+  background-color: RGBa(230, 40, 40, 0.85) !important;
+}
+.button:active {
   border: solid;
   border-color: RGBa(240, 240, 240, 0.3);
 }

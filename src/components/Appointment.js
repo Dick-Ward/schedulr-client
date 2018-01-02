@@ -10,7 +10,11 @@ const Appointment = props => {
   return (
     <Draggable
       onStop={props.handleStop}
-      bounds={{ left: props.leftBounds, right: props.rightBounds }}
+      bounds={{
+        left: props.leftBounds,
+        right: props.rightBounds,
+        top: props.topBounds
+      }}
       grid={[255, 33.75]}
       id={props.id}
     >
