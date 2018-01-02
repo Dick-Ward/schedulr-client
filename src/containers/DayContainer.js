@@ -45,10 +45,10 @@ class DayContainer extends React.Component {
           <Modal.Header>Did you know?</Modal.Header>
           <Modal.Content>
             <a
-              onClick={this.props.handleClose}
+              onClick={this.props.modalClose}
               className="ui right corner label"
             >
-              <i onClick={this.props.handleClose} className="delete icon" />
+              <i onClick={this.props.modalClose} className="delete icon" />
             </a>
             Hi there! Did you know you can double click on an appointment to
             edit it? You can!
@@ -62,6 +62,7 @@ class DayContainer extends React.Component {
             quote={this.props.quote}
             editModalOpen={this.props.editModalOpen}
             handleDoubleClick={this.props.handleDoubleClick}
+            modalClose={this.props.modalClose}
           />
         </div>
         <div className="four wide column">

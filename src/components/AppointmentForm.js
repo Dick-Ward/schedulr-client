@@ -10,7 +10,7 @@ const AppointmentForm = props => {
   const difficultyMap = difficulties.map(difficulty => {
     return { text: `${difficulty}`, value: `${difficulty}` };
   });
-
+  console.log(props.difficulty);
   return (
     <Form error onSubmit={props.handleSubmit}>
       <div className="field">
@@ -43,7 +43,6 @@ const AppointmentForm = props => {
           <label style={{ color: "#F4FAFF" }}>Difficulty</label>
           <Dropdown
             selection
-            defaultValue="Normal"
             options={difficultyMap}
             onChange={props.handleSelect}
             name="difficulty"

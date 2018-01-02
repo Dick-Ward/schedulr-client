@@ -37,7 +37,7 @@ class AppointmentFormContainer extends React.Component {
           this.setState({
             name: "",
             duration: "",
-            difficulty: "normal",
+            difficulty: "Normal",
             errorMessage: ""
           })
         );
@@ -77,6 +77,7 @@ class AppointmentFormContainer extends React.Component {
           handleSubmit={this.handleSubmit}
           handleSelect={this.handleSelect}
           errorMessage={this.state.errorMessage}
+          difficulty={this.state.difficulty}
         />
       </div>
     );

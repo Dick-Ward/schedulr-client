@@ -59,6 +59,7 @@ const DayGrid = props => {
               handleDelete={props.handleDelete}
               editModalOpen={props.editModalOpen}
               handleDoubleClick={props.handleDoubleClick}
+              modalClose={props.modalClose}
             />
           </div>
         </div>

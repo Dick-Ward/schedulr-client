@@ -20,11 +20,14 @@ class App extends Component {
   };
   onEscape = e => {
     if (e.key === "Escape") {
-      this.setState({ modalOpen: false, editModalOpen: false });
+      this.modalClose();
     }
   };
   handleDoubleClick = () => {
     this.setState({ editModalOpen: true });
+  };
+  modalClose = () => {
+    this.setState({ modalOpen: false, editModalOpen: false });
   };
 
   componentDidMount() {
@@ -62,7 +65,7 @@ class App extends Component {
       }
     });
     if (prevstate.length === 1) {
-      this.setState({ modalOpen: true });
+      this.setState({ modalOpen: true, editModalOpen: false });
     }
   };
 
@@ -150,6 +153,7 @@ class App extends Component {
                   handleClose={this.handleClose}
                   editModalOpen={this.state.editModalOpen}
                   handleDoubleClick={this.handleDoubleClick}
+                  modalClose={this.modalClose}
                 />
               );
             }}

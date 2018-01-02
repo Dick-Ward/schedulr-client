@@ -16,8 +16,8 @@ const EditModal = props => {
       <Modal size="tiny" open={props.editModalOpen}>
         <Modal.Header>Edit Task</Modal.Header>
         <Modal.Content>
-          <a onClick={props.handleClose} className="ui right corner label">
-            <i onClick={props.handleClose} className="delete icon" />
+          <a onClick={props.modalClose} className="ui right corner label">
+            <i onClick={props.modalClose} className="delete icon" />
           </a>
           <Form id={props.id} onSubmit={props.handleSubmit}>
             <div className="field">

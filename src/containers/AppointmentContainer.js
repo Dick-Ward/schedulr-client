@@ -42,7 +42,7 @@ class AppointmentContainer extends React.Component {
       this.state.duration,
       this.state.difficulty
     );
-    this.setState({ modalOpen: false });
+    this.props.modalClose();
   };
 
   // fires when user stops dragging an item.
@@ -69,8 +69,7 @@ class AppointmentContainer extends React.Component {
       y: this.props.y,
       name: this.props.name,
       duration: this.props.duration,
-      difficulty: this.props.difficulty,
-      modalOpen: false
+      difficulty: this.props.difficulty
     });
   };
 
@@ -99,6 +98,7 @@ class AppointmentContainer extends React.Component {
         difficulty={this.state.difficulty}
         editModalOpen={this.props.editModalOpen}
         handleDoubleClick={this.props.handleDoubleClick}
+        modalClose={this.props.modalClose}
       />
     );
   }

@@ -50,6 +50,7 @@ const Appointment = props => {
           difficulty={props.difficulty}
           editModalOpen={props.editModalOpen}
           handleDoubleClick={props.handleDoubleClick}
+          modalClose={props.modalClose}
         />
       </div>
     </Draggable>
