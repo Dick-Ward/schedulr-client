@@ -5,7 +5,6 @@ import LoginFormContainer from "./containers/LoginFormContainer";
 import SignupFormContainer from "./containers/SignupFormContainer";
 import { Route, Switch, withRouter } from "react-router-dom";
 import api from "./services/api";
-import quotes from "./quotes";
 
 class App extends Component {
   state = {
@@ -16,12 +15,8 @@ class App extends Component {
         end_time: "10:00pm"
       }
     },
-    quote: "",
+    quote: this.props.quote,
     modalOpen: false
-  };
-
-  quote = () => {
-    return quotes[Math.round(Math.random() * 9)];
   };
 
   handleClose = () => {
@@ -34,8 +29,7 @@ class App extends Component {
       api.auth.getCurrentUser().then(user => {
         const currentUser = { currentUser: user };
         this.setState({
-          auth: currentUser,
-          quote: this.quote()
+          auth: currentUser
         });
       });
     } else {
@@ -64,7 +58,6 @@ class App extends Component {
       }
     });
     if (prevstate.length === 1) {
-      console.log("it was");
       this.setState({ modalOpen: true });
     }
   };
