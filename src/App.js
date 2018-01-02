@@ -157,10 +157,10 @@ class App extends Component {
           }}
         >
           <footer>
-            <p style={{ color: "RGB(14,14,14)" }}>
+            <p style={{ color: "RGB(31,31,31)" }}>
               &copy; 2017 Dick Ward |{" "}
               <a
-                style={{ color: "RGB(31,31,31)" }}
+                style={{ color: "RGB(14,14,14)" }}
                 href="mailto:thedickward@gmail.com"
               >
                 TheDickWard@gmail.com

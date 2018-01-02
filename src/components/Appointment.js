@@ -42,6 +42,8 @@ const Appointment = props => {
           handleClose={props.handleClose}
           modalOpen={props.modalOpen}
           id={props.id}
+          name={props.name}
+          duration={props.duration}
         />
       </div>
     </Draggable>
