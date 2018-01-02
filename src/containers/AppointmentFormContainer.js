@@ -7,7 +7,6 @@ class AppointmentFormContainer extends React.Component {
   state = {
     name: "",
     duration: "",
-    error: false,
     errorMessage: null
   };
 
