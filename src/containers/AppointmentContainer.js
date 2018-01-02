@@ -41,28 +41,23 @@ class AppointmentContainer extends React.Component {
     );
     this.setState({ modalOpen: false });
   };
-  // Returns the measurement of all previous siblings.
-  // May add this to creation so appointments dont' stack
-  // siblingCheck = (f, offset) => {
-  //   let siblingLength = offset;
-  //   if (f.previousSibling) {
-  //     siblingLength += f.previousSibling.offsetHeight;
-  //     if (f.previousSibling.previousSibling) {
-  //       return this.siblingCheck(f.previousSibling, siblingLength);
-  //     }
-  //   }
-  //   return siblingLength;
-  // };
-  //
-  handleStop = (e, f) => {
-    const winY = f.node.firstChild.getBoundingClientRect().y;
+
+  // fires when user stops dragging an item.
+  handleStop = (event, dragElement) => {
+    //the location of the element in the window
+    const winY = dragElement.node.firstChild.getBoundingClientRect().y;
+    // the amount that the user has scrolled
     const scroll =
-      f.node.parentElement.parentElement.parentElement.parentElement.scrollTop;
-
+      dragElement.node.parentElement.parentElement.parentElement.parentElement
+        .scrollTop;
     const y = winY - 87 + scroll;
-    const x = this.state.x + Math.round(f.x / 255) * 255;
-
-    api.appointments.updateAppointmentLocation(f.node.firstChild.id, x, y);
+    // rounds x coord so user cannot permanantly lose a task
+    const x = this.state.x + dragElement.x > -127.5 ? 0 : -255;
+    api.appointments.updateAppointmentLocation(
+      dragElement.node.firstChild.id,
+      x,
+      y
+    );
   };
 
   handleDoubleClick = () => {
