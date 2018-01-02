@@ -148,6 +148,26 @@ class App extends Component {
             }}
           />
         </Switch>
+        <div
+          style={{
+            position: "static",
+            position: "absolute",
+            bottom: "10px",
+            right: "10px"
+          }}
+        >
+          <footer>
+            <p style={{ color: "RGB(14,14,14)" }}>
+              &copy; 2017 Dick Ward |{" "}
+              <a
+                style={{ color: "RGB(31,31,31)" }}
+                href="mailto:thedickward@gmail.com"
+              >
+                TheDickWard@gmail.com
+              </a>
+            </p>
+          </footer>
+        </div>
       </div>
     );
   }
