@@ -12,20 +12,26 @@ const DayGrid = props => {
         minWidth: "550px",
         borderLeft: "solid",
         borderColor: "RGBa(61, 61, 61,.3)",
-        borderTopRightRadius: "10px",
-        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "20px",
+        borderTopLeftRadius: "20px",
         borderBottomRightRadius: "10px",
         borderBottomLeftRadius: "10px"
       }}
     >
-      <div className="ui top attached one item inverted menu">
+      <div
+        className="ui top attached one item inverted menu"
+        style={{
+          borderTopRightRadius: "20px",
+          borderTopLeftRadius: "20px"
+        }}
+      >
         <div
           className="item"
           style={{
             backgroundColor: "#313131",
             color: "#F4FAFF",
-            borderTopRightRadius: "10px",
-            borderTopLeftRadius: "10px"
+            borderTopRightRadius: "20px",
+            borderTopLeftRadius: "20px"
           }}
         >
           {moment().format("dddd, MMMM Do YYYY")}
@@ -60,8 +66,9 @@ const DayGrid = props => {
         style={{
           backgroundColor: "#313131",
           padding: "5px",
-          borderBottomRightRadius: "10px",
-          borderBottomLeftRadius: "10px",
+          borderBottomRightRadius: "20px",
+          borderBottomLeftRadius: "20px",
+          
           textAlign: "center",
           color: "RGBa(150,150,150, 1)",
           fontStyle: "italic"

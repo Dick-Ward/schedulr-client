@@ -157,7 +157,16 @@ class App extends Component {
           }}
         >
           <footer>
-            <p style={{ color: "RGB(31,31,31)" }}>
+            <p
+              style={{
+                color: "RGB(31,31,31)",
+                backgroundColor: "RGBa(244, 244, 244, .03)",
+                borderTopRightRadius: "5px",
+                borderTopLeftRadius: "5px",
+                borderBottomRightRadius: "5px",
+                borderBottomLeftRadius: "5px"
+              }}
+            >
               &copy; 2017 Dick Ward |{" "}
               <a
                 style={{ color: "RGB(14,14,14)" }}
