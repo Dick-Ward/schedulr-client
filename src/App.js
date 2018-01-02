@@ -63,7 +63,6 @@ class App extends Component {
         currentUser: { ...this.state.auth.currentUser, appointments: prevstate }
       }
     });
-
     if (prevstate.length === 1) {
       console.log("it was");
       this.setState({ modalOpen: true });

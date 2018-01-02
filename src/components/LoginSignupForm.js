@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoginForm = props => {
+const LoginSignupForm = props => {
   return (
     <div
       style={{
@@ -9,7 +9,7 @@ const LoginForm = props => {
       className="ui raised text container segment"
     >
       <form className="ui form" onSubmit={props.onSubmit}>
-        <div>Log In</div>
+        <div>{props.name}</div>
         <div className="field">
           <label>
             Email Address
@@ -23,7 +23,6 @@ const LoginForm = props => {
             />
           </label>
         </div>
-
         <div className="field">
           <label>
             Password
@@ -37,7 +36,6 @@ const LoginForm = props => {
             />
           </label>
         </div>
-
         <button className="ui button" type="submit">
           Submit
         </button>
@@ -47,4 +45,4 @@ const LoginForm = props => {
   );
 };
 
-export default LoginForm;
+export default LoginSignupForm;

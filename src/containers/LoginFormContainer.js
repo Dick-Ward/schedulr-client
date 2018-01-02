@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "../components/LoginForm";
+import LoginSignupForm from "../components/LoginSignupForm";
 import api from "../services/api";
 import { Message } from "semantic-ui-react";
 
@@ -41,7 +41,8 @@ class LoginFormContainer extends React.Component {
 
   render() {
     return (
-      <LoginForm
+      <LoginSignupForm
+        name="Log In"
         onSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         email={this.state.email}

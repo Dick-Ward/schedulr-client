@@ -1,5 +1,5 @@
 import React from "react";
-import SignupForm from "../components/SignupForm";
+import LoginSignupForm from "../components/LoginSignupForm";
 import api from "../services/api";
 import { Message } from "semantic-ui-react";
 
@@ -39,7 +39,8 @@ class SignupFormContainer extends React.Component {
 
   render() {
     return (
-      <SignupForm
+      <LoginSignupForm
+        name="Sign Up"
         email={this.state.email}
         password={this.state.password}
         onSubmit={this.handleSubmit}
