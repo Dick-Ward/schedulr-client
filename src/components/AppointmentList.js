@@ -12,7 +12,10 @@ const AppoinmentList = props => {
         duration={appointment.duration}
         x={appointment.x}
         y={appointment.y}
+        difficulty={appointment.difficulty}
         handleDelete={props.handleDelete}
+        editModalOpen={props.editModalOpen}
+        handleDoubleClick={props.handleDoubleClick}
       />
     );
   });

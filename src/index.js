@@ -11,7 +11,9 @@ const quote = () => {
 
 ReactDOM.render(
   <BrowserRouter>
-    <App quote={quote()} />
+    <div>
+      <App quote={quote()} />
+    </div>
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -7,6 +7,7 @@ class AppointmentFormContainer extends React.Component {
   state = {
     name: "",
     duration: "",
+    difficulty: "Normal",
     errorMessage: null
   };
 
@@ -28,10 +29,18 @@ class AppointmentFormContainer extends React.Component {
         .newAppointment(
           this.state.name,
           this.state.duration,
-          this.props.currentUser.id
+          this.props.currentUser.id,
+          this.state.difficulty
         )
         .then(this.props.createAppointment)
-        .then(this.setState({ name: "", duration: "", errorMessage: "" }));
+        .then(
+          this.setState({
+            name: "",
+            duration: "",
+            difficulty: "normal",
+            errorMessage: ""
+          })
+        );
     }
   };
 

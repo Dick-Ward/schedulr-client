@@ -6,6 +6,10 @@ const AppointmentForm = props => {
   const timeMap = times.map(time => {
     return { text: `${time} minutes`, value: `${time}` };
   });
+  const difficulties = ["Easy", "Normal", "Difficult"];
+  const difficultyMap = difficulties.map(difficulty => {
+    return { text: `${difficulty}`, value: `${difficulty}` };
+  });
 
   return (
     <Form error onSubmit={props.handleSubmit}>
@@ -34,6 +38,17 @@ const AppointmentForm = props => {
           name="duration"
           value={props.duration}
         />
+        <div className="field">
+          <label style={{ color: "#F4FAFF" }}>Difficulty</label>
+          <Dropdown
+            selection
+            defaultValue="Normal"
+            options={difficultyMap}
+            onChange={props.handleSelect}
+            name="difficulty"
+            value={props.difficulty}
+          />
+        </div>
       </div>
       <div className="field">
         <Button type="submit">Submit</Button>

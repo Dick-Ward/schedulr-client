@@ -5,6 +5,7 @@ import moment from "moment";
 
 const DayGrid = props => {
   const { currentUser } = props;
+
   return (
     <div
       style={{
@@ -56,6 +57,8 @@ const DayGrid = props => {
             <AppointmentList
               appointments={currentUser.appointments}
               handleDelete={props.handleDelete}
+              editModalOpen={props.editModalOpen}
+              handleDoubleClick={props.handleDoubleClick}
             />
           </div>
         </div>

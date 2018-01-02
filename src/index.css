@@ -5,15 +5,17 @@ body {
   background-color: black;
   background-image: url("https://hdwallsource.com/img/2014/4/free-background-wallpaper-22918-23554-hd-wallpapers.jpg");
 }
-.normal {
-  background-color: RGBa(13, 171, 118, 0.85) !important;
-}
-.break {
+.Easy {
   background-color: RGBa(61, 214, 208, 0.85) !important;
+  color: RGB(224, 225, 226) !important;
 }
-.urgent {
+.Normal {
+  background-color: RGBa(13, 171, 118, 0.85) !important;
+  color: RGB(224, 225, 226) !important;
+}
+.Difficult {
   background-color: RGBa(240, 113, 45, 0.85) !important;
-  color: #f4faff !important;
+  color: RGB(224, 225, 226) !important;
 }
 .button:active {
   border: solid;

@@ -38,11 +38,13 @@ const update = (id, start_time, end_time) => {
   }).then(res => res.json());
 };
 
-const newAppointment = (title, duration, user_id) => {
+const newAppointment = (title, duration, user_id, difficulty) => {
   return fetch(`${API_ROOT}/appointments/`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ appointment: { title, duration, user_id } })
+    body: JSON.stringify({
+      appointment: { title, duration, user_id, difficulty }
+    })
   }).then(res => res.json());
 };
 
@@ -53,11 +55,11 @@ const updateAppointmentLocation = (id, x, y) => {
     body: JSON.stringify({ x, y })
   }).then(res => res.json());
 };
-const updateAppointment = (id, title, duration) => {
+const updateAppointment = (id, title, duration, difficulty) => {
   return fetch(`${API_ROOT}/appointments/${id}`, {
     method: "PATCH",
     headers: headers,
-    body: JSON.stringify({ title, duration })
+    body: JSON.stringify({ title, duration, difficulty })
   }).then(res => res.json());
 };
 

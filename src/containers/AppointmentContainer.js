@@ -6,10 +6,9 @@ class AppointmentContainer extends React.Component {
   state = {
     x: 0,
     y: 0,
-    modalOpen: false,
     name: "",
     duration: "",
-    urgency: "normal"
+    difficulty: "normal"
   };
 
   handleChange = event => {
@@ -31,14 +30,17 @@ class AppointmentContainer extends React.Component {
       x: this.props.x,
       y: this.props.y,
       name: this.props.name,
-      duration: this.props.duration
+      duration: this.props.duration,
+      difficulty: this.props.difficulty,
+      modalOpen: this.props.handleEscape
     });
   }
   handleSubmit = e => {
     api.appointments.updateAppointment(
       e.target.id,
       this.state.name,
-      this.state.duration
+      this.state.duration,
+      this.state.difficulty
     );
     this.setState({ modalOpen: false });
   };
@@ -61,23 +63,24 @@ class AppointmentContainer extends React.Component {
     );
   };
 
-  handleDoubleClick = () => {
-    this.setState({ modalOpen: true });
-  };
-
   handleClose = () => {
-    this.setState({ modalOpen: false });
+    this.setState({
+      x: this.props.x,
+      y: this.props.y,
+      name: this.props.name,
+      duration: this.props.duration,
+      difficulty: this.props.difficulty,
+      modalOpen: false
+    });
   };
 
   render() {
-    const urgency = "normal";
     // right and left bounds make sure users can't move tasks off the board
     const leftBounds = this.state.x === -0 ? -255 : 0;
     const rightBounds = this.state.x === -255 ? 255 : 0;
     const topBounds = -this.state.y + 16;
     return (
       <Appointment
-        handleDoubleClick={this.handleDoubleClick}
         handleStop={this.handleStop}
         name={this.state.name}
         id={this.props.id}
@@ -93,7 +96,9 @@ class AppointmentContainer extends React.Component {
         leftBounds={leftBounds}
         rightBounds={rightBounds}
         topBounds={topBounds}
-        urgency={this.state.urgency}
+        difficulty={this.state.difficulty}
+        editModalOpen={this.props.editModalOpen}
+        handleDoubleClick={this.props.handleDoubleClick}
       />
     );
   }

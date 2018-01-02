@@ -15,11 +15,16 @@ class App extends Component {
       }
     },
     quote: this.props.quote,
-    modalOpen: false
+    modalOpen: false,
+    editModalOpen: false
   };
-
-  handleClose = () => {
-    this.setState({ modalOpen: false });
+  onEscape = e => {
+    if (e.key === "Escape") {
+      this.setState({ modalOpen: false, editModalOpen: false });
+    }
+  };
+  handleDoubleClick = () => {
+    this.setState({ editModalOpen: true });
   };
 
   componentDidMount() {
@@ -93,7 +98,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div onKeyUp={this.onEscape}>
         <div>
           <Navbar
             currentUser={this.state.auth.currentUser}
@@ -143,6 +148,8 @@ class App extends Component {
                   quote={this.state.quote}
                   modalOpen={this.state.modalOpen}
                   handleClose={this.handleClose}
+                  editModalOpen={this.state.editModalOpen}
+                  handleDoubleClick={this.handleDoubleClick}
                 />
               );
             }}
@@ -150,7 +157,6 @@ class App extends Component {
         </Switch>
         <div
           style={{
-            position: "static",
             position: "absolute",
             bottom: "10px",
             right: "10px"

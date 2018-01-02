@@ -5,7 +5,6 @@ import EditModal from "./EditModal";
 
 const Appointment = props => {
   const height = `${props.duration * 2.2}px`;
-  console.log(props.x);
 
   return (
     <Draggable
@@ -27,7 +26,7 @@ const Appointment = props => {
         }}
       >
         <Button
-          className={props.urgency}
+          className={props.difficulty}
           onDoubleClick={props.handleDoubleClick}
           id={props.id}
           style={{
@@ -48,6 +47,9 @@ const Appointment = props => {
           id={props.id}
           name={props.name}
           duration={props.duration}
+          difficulty={props.difficulty}
+          editModalOpen={props.editModalOpen}
+          handleDoubleClick={props.handleDoubleClick}
         />
       </div>
     </Draggable>
