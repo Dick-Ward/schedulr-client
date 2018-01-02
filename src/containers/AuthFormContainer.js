@@ -1,9 +1,8 @@
 import React from "react";
-import LoginSignupForm from "../components/LoginSignupForm";
-import api from "../services/api";
+import AuthForm from "../components/AuthForm";
 import { Message } from "semantic-ui-react";
 
-class LoginFormContainer extends React.Component {
+class AuthFormContainer extends React.Component {
   state = {
     email: "",
     password: "",
@@ -26,7 +25,7 @@ class LoginFormContainer extends React.Component {
         )
       });
     } else {
-      api.auth.login(this.state.email, this.state.password).then(res => {
+      this.props.apiCall(this.state.email, this.state.password).then(res => {
         if (res.error) {
           this.setState({
             errorMessage: <Message error header="Error" content={res.error} />
@@ -41,16 +40,16 @@ class LoginFormContainer extends React.Component {
 
   render() {
     return (
-      <LoginSignupForm
-        name="Log In"
-        onSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
+      <AuthForm
+        name={this.props.name}
         email={this.state.email}
         password={this.state.password}
+        onSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
         errorMessage={this.state.errorMessage}
       />
     );
   }
 }
 
-export default LoginFormContainer;
+export default AuthFormContainer;

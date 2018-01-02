@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoginSignupForm = props => {
+const AuthForm = props => {
   return (
     <div
       style={{
@@ -45,4 +45,4 @@ const LoginSignupForm = props => {
   );
 };
 
-export default LoginSignupForm;
+export default AuthForm;

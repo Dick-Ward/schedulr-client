@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import DayContainer from "./containers/DayContainer";
 import Navbar from "./components/Navbar";
-import LoginFormContainer from "./containers/LoginFormContainer";
-import SignupFormContainer from "./containers/SignupFormContainer";
+import AuthFormContainer from "./containers/AuthFormContainer";
 import { Route, Switch, withRouter } from "react-router-dom";
 import api from "./services/api";
 
@@ -107,9 +106,11 @@ class App extends Component {
             path="/login"
             render={routerProps => {
               return (
-                <LoginFormContainer
+                <AuthFormContainer
                   {...routerProps}
                   handleLogin={this.handleLogin}
+                  name="Sign In"
+                  apiCall={api.auth.login}
                 />
               );
             }}
@@ -118,9 +119,11 @@ class App extends Component {
             path="/signup"
             render={routerProps => {
               return (
-                <SignupFormContainer
+                <AuthFormContainer
                   {...routerProps}
                   handleLogin={this.handleLogin}
+                  name="Sign Up"
+                  apiCall={api.users.signup}
                 />
               );
             }}
