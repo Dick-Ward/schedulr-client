@@ -5,9 +5,15 @@ import EditModal from "./EditModal";
 
 const Appointment = props => {
   const height = `${props.duration * 2.2}px`;
+  console.log(props.x);
 
   return (
-    <Draggable onStop={props.handleStop} grid={[255, 33.75]} id={props.id}>
+    <Draggable
+      onStop={props.handleStop}
+      bounds={{ left: props.leftBounds, right: props.rightBounds }}
+      grid={[255, 33.75]}
+      id={props.id}
+    >
       <div
         id={props.id}
         style={{
