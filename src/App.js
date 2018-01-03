@@ -10,8 +10,8 @@ class App extends Component {
     auth: {
       currentUser: {
         appointments: [],
-        start_time: "6:00am",
-        end_time: "10:00pm"
+        startTime: "6:00am",
+        endTime: "10:00pm"
       }
     },
     quote: this.props.quote,
@@ -87,8 +87,8 @@ class App extends Component {
       auth: {
         currentUser: {
           ...this.state.auth.currentUser,
-          start_time: time.startTime,
-          end_time: time.endTime
+          startTime: time.startTime,
+          endTime: time.endTime
         }
       }
     });

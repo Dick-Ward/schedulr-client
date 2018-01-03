@@ -49,8 +49,8 @@ const DayGrid = props => {
         <div className="ui column grid container">
           <div className="ten wide column">
             <DayList
-              startTime={currentUser.start_time}
-              endTime={currentUser.end_time}
+              startTime={currentUser.startTime}
+              endTime={currentUser.endTime}
             />
           </div>
           <div className="six wide column">

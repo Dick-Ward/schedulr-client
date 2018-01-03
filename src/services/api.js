@@ -30,11 +30,11 @@ const signup = (email, password) => {
   }).then(res => res.json());
 };
 
-const update = (id, start_time, end_time) => {
+const update = (id, startTime, endTime) => {
   return fetch(`${API_ROOT}/users/${id}`, {
     method: "PATCH",
     headers: headers,
-    body: JSON.stringify({ start_time, end_time })
+    body: JSON.stringify({ startTime, endTime })
   }).then(res => res.json());
 };
 
