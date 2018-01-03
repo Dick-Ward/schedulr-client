@@ -3,12 +3,10 @@ import UserPreferenceForm from "../components/UserPreferenceForm";
 
 class UserPreferenceFormContainer extends React.Component {
   state = {
-    startTime: "",
-    endTime: ""
+    startTime: "6:00am",
+    endTime: "10:00pm"
   };
-  componentDidMount() {
-    this.setState({ startTime: "6:00am", endTime: "10:00pm" });
-  }
+
   handleChange = (e, value) => {
     this.setState({ [value.name]: value.value });
   };
@@ -20,6 +18,7 @@ class UserPreferenceFormContainer extends React.Component {
     this.props.handleClose();
   };
   render() {
+    console.log(this.props.currentUser);
     return (
       <div
         className="ui raised segment"
@@ -36,8 +35,8 @@ class UserPreferenceFormContainer extends React.Component {
         <UserPreferenceForm
           setTime={this.setTime}
           handleChange={this.handleChange}
-          startTime={this.state.startTime}
-          endTime={this.state.endTime}
+          startTime={this.props.currentUser.start_time}
+          endTime={this.props.currentUser.end_time}
         />
       </div>
     );

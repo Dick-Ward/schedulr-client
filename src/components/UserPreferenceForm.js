@@ -7,6 +7,7 @@ const UserPreferenceForm = props => {
     return { text: `${time}`, value: `${time}` };
   });
 
+  console.log(props.endTime);
   return (
     <form className="ui form" onSubmit={props.setTime}>
       <div className="field">
@@ -24,10 +25,10 @@ const UserPreferenceForm = props => {
       </div>
       <div className="field">
         <label style={{ color: "#F4FAFF" }}>
-          Bed Time: <br />
+          Sleep Time: <br />
           <Dropdown
             selection
-            placeholder="Select a Bed Time"
+            placeholder="Select a Sleep Time"
             onChange={props.handleChange}
             name="endTime"
             options={timeMap}

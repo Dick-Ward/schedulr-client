@@ -15,7 +15,8 @@ class App extends Component {
       }
     },
     quote: this.props.quote,
-    modalOpen: false
+    modalOpen: false,
+    buttonActive: null
   };
   onEscape = e => {
     if (e.key === "Escape") {
@@ -77,6 +78,8 @@ class App extends Component {
     });
   };
 
+  // handleNavbarSelect
+
   setTimes = time => {
     api.users.update(
       this.state.auth.currentUser.id,
@@ -101,6 +104,7 @@ class App extends Component {
           <Navbar
             currentUser={this.state.auth.currentUser}
             handleLogout={this.handleLogout}
+            buttonActive={this.buttonActive}
           />
         </div>
 

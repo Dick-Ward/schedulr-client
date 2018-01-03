@@ -15,14 +15,18 @@ const Navbar = props => {
       );
     } else {
       return (
-        <Item>
-          <Link to="/signup" className="ui item">
-            Sign Up
-          </Link>
-          <Link to="/login" className="ui item">
-            Sign In
-          </Link>
-        </Item>
+        <Menu.Item>
+          <Menu.Item>
+            <Link to="/signup" className="ui item">
+              Sign Up
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/login" className="ui item">
+              Sign In
+            </Link>
+          </Menu.Item>
+        </Menu.Item>
       );
     }
   };
