@@ -57,7 +57,7 @@ const DayGrid = props => {
             <AppointmentList
               appointments={currentUser.appointments}
               handleDelete={props.handleDelete}
-              editModalOpen={props.editModalOpen}
+              activeModal={props.activeModal}
               handleDoubleClick={props.handleDoubleClick}
               modalClose={props.modalClose}
             />

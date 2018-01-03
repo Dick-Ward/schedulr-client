@@ -27,7 +27,7 @@ const Appointment = props => {
       >
         <Button
           className={props.difficulty}
-          onDoubleClick={props.handleDoubleClick}
+          onDoubleClick={props.buttonDoubleClick}
           id={props.id}
           style={{
             margin: "1px",
@@ -37,6 +37,7 @@ const Appointment = props => {
         >
           {props.name}
         </Button>
+
         <EditModal
           handleSubmit={props.handleSubmit}
           handleChange={props.handleChange}
@@ -48,8 +49,7 @@ const Appointment = props => {
           name={props.name}
           duration={props.duration}
           difficulty={props.difficulty}
-          editModalOpen={props.editModalOpen}
-          handleDoubleClick={props.handleDoubleClick}
+          activeModal={props.activeModal}
           modalClose={props.modalClose}
         />
       </div>

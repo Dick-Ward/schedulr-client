@@ -10,7 +10,7 @@ const AppointmentForm = props => {
   const difficultyMap = difficulties.map(difficulty => {
     return { text: `${difficulty}`, value: `${difficulty}` };
   });
-  console.log(props.difficulty);
+
   return (
     <Form error onSubmit={props.handleSubmit}>
       <div className="field">

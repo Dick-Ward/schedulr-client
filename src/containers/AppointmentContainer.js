@@ -8,7 +8,8 @@ class AppointmentContainer extends React.Component {
     y: 0,
     name: "",
     duration: "",
-    difficulty: "normal"
+    difficulty: "normal",
+    modalOpen: false
   };
 
   handleChange = event => {
@@ -18,11 +19,6 @@ class AppointmentContainer extends React.Component {
   // Since dropdowns work differently in Semantic, I need to use a separate handleSelect
   handleSelect = (e, value) => {
     this.setState({ [value.name]: value.value });
-  };
-
-  onDelete = event => {
-    this.props.handleDelete(event.target.id);
-    api.appointments.deleteAppointment(event.target.id);
   };
 
   componentDidMount() {
@@ -90,14 +86,14 @@ class AppointmentContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleSelect={this.handleSelect}
-        onDelete={this.onDelete}
+        onDelete={this.props.handleDelete}
         handleClose={this.handleClose}
         leftBounds={leftBounds}
         rightBounds={rightBounds}
         topBounds={topBounds}
         difficulty={this.state.difficulty}
-        editModalOpen={this.props.editModalOpen}
-        handleDoubleClick={this.props.handleDoubleClick}
+        activeModal={this.props.activeModal}
+        buttonDoubleClick={this.props.handleDoubleClick}
         modalClose={this.props.modalClose}
       />
     );

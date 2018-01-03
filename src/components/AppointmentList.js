@@ -14,7 +14,7 @@ const AppoinmentList = props => {
         y={appointment.y}
         difficulty={appointment.difficulty}
         handleDelete={props.handleDelete}
-        editModalOpen={props.editModalOpen}
+        activeModal={props.activeModal}
         handleDoubleClick={props.handleDoubleClick}
         modalClose={props.modalClose}
       />

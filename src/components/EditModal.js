@@ -11,9 +11,11 @@ const EditModal = props => {
     return { text: `${difficulty}`, value: `${difficulty}` };
   });
 
+  const active = props.activeModal === props.id.toString() ? true : false;
+
   return (
     <div>
-      <Modal size="tiny" open={props.editModalOpen}>
+      <Modal size="tiny" open={active}>
         <Modal.Header>Edit Task</Modal.Header>
         <Modal.Content>
           <a onClick={props.modalClose} className="ui right corner label">

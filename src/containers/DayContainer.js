@@ -60,7 +60,7 @@ class DayContainer extends React.Component {
             currentUser={this.props.currentUser}
             handleDelete={this.props.handleDelete}
             quote={this.props.quote}
-            editModalOpen={this.props.editModalOpen}
+            activeModal={this.props.activeModal}
             handleDoubleClick={this.props.handleDoubleClick}
             modalClose={this.props.modalClose}
           />

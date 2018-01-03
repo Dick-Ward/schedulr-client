@@ -16,18 +16,18 @@ class App extends Component {
     },
     quote: this.props.quote,
     modalOpen: false,
-    editModalOpen: false
+    activeModal: null
   };
   onEscape = e => {
     if (e.key === "Escape") {
       this.modalClose();
     }
   };
-  handleDoubleClick = () => {
-    this.setState({ editModalOpen: true });
+  handleDoubleClick = e => {
+    this.setState({ activeModal: e.target.id });
   };
   modalClose = () => {
-    this.setState({ modalOpen: false, editModalOpen: false });
+    this.setState({ modalOpen: false, activeModal: null });
   };
 
   componentDidMount() {
@@ -69,9 +69,11 @@ class App extends Component {
     }
   };
 
-  handleDelete = id => {
-    const prevState = this.state.auth.currentUser.appointments.slice();
-    const newState = prevState.filter(a => a.id.toString() !== id);
+  handleDelete = event => {
+    api.appointments.deleteAppointment(event.target.id);
+    const id = event.target.id;
+    const prevstate = this.state.auth.currentUser.appointments.slice();
+    const newState = prevstate.filter(a => a.id.toString() !== id);
     this.setState({
       auth: {
         currentUser: {
@@ -151,7 +153,7 @@ class App extends Component {
                   quote={this.state.quote}
                   modalOpen={this.state.modalOpen}
                   handleClose={this.handleClose}
-                  editModalOpen={this.state.editModalOpen}
+                  activeModal={this.state.activeModal}
                   handleDoubleClick={this.handleDoubleClick}
                   modalClose={this.modalClose}
                 />
