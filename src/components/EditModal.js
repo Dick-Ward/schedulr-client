@@ -11,15 +11,13 @@ const EditModal = props => {
     return { text: `${difficulty}`, value: `${difficulty}` };
   });
 
-  const active = props.activeModal === props.id.toString() ? true : false;
-
   return (
     <div>
-      <Modal size="tiny" open={active}>
+      <Modal size="tiny" open={props.modalOpen}>
         <Modal.Header>Edit Task</Modal.Header>
         <Modal.Content>
-          <a onClick={props.modalClose} className="ui right corner label">
-            <i onClick={props.modalClose} className="delete icon" />
+          <a onClick={props.handleClose} className="ui right corner label">
+            <i onClick={props.handleClose} className="delete icon" />
           </a>
           <Form id={props.id} onSubmit={props.handleSubmit}>
             <div className="field">
@@ -63,7 +61,7 @@ const EditModal = props => {
               <button
                 type="button"
                 id={props.id}
-                onClick={props.onDelete}
+                onClick={props.handleDelete}
                 className="ui negative button"
               >
                 Delete

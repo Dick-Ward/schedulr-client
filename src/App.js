@@ -15,19 +15,16 @@ class App extends Component {
       }
     },
     quote: this.props.quote,
-    modalOpen: false,
-    activeModal: null
+    modalOpen: false
   };
   onEscape = e => {
     if (e.key === "Escape") {
       this.modalClose();
     }
   };
-  handleDoubleClick = e => {
-    this.setState({ activeModal: e.target.id });
-  };
+
   modalClose = () => {
-    this.setState({ modalOpen: false, activeModal: null });
+    this.setState({ modalOpen: false });
   };
 
   componentDidMount() {
@@ -57,29 +54,25 @@ class App extends Component {
   };
 
   createAppointment = appointment => {
-    const prevstate = this.state.auth.currentUser.appointments.slice();
-    prevstate.push(appointment);
+    const prevState = this.state.auth.currentUser.appointments.slice();
+    prevState.push(appointment);
     this.setState({
       auth: {
-        currentUser: { ...this.state.auth.currentUser, appointments: prevstate }
+        currentUser: { ...this.state.auth.currentUser, appointments: prevState }
       }
     });
-    if (prevstate.length === 1) {
-      this.setState({ modalOpen: true, editModalOpen: false });
+    if (prevState.length === 1) {
+      this.setState({ modalOpen: true });
     }
   };
 
-  handleDelete = event => {
-    api.appointments.deleteAppointment(event.target.id);
-    const id = event.target.id;
-    const prevstate = this.state.auth.currentUser.appointments.slice();
-    const newState = prevstate.filter(a => a.id.toString() !== id);
+  handleDelete = id => {
+    api.appointments.deleteAppointment(id);
+    const prevState = this.state.auth.currentUser.appointments.slice();
+    const newState = prevState.filter(a => a.id.toString() !== id);
     this.setState({
       auth: {
-        currentUser: {
-          ...this.state.auth.currentUser,
-          appointments: newState
-        }
+        currentUser: { ...this.state.auth.currentUser, appointments: newState }
       }
     });
   };
@@ -153,8 +146,6 @@ class App extends Component {
                   quote={this.state.quote}
                   modalOpen={this.state.modalOpen}
                   handleClose={this.handleClose}
-                  activeModal={this.state.activeModal}
-                  handleDoubleClick={this.handleDoubleClick}
                   modalClose={this.modalClose}
                 />
               );

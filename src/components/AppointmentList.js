@@ -3,10 +3,10 @@ import AppointmentContainer from "../containers/AppointmentContainer";
 
 const AppoinmentList = props => {
   const { appointments } = props;
-  const appointment = appointments.map((appointment, index) => {
+  const appointment = appointments.map(appointment => {
     return (
       <AppointmentContainer
-        key={index}
+        key={appointment.id}
         id={appointment.id}
         name={appointment.title}
         duration={appointment.duration}

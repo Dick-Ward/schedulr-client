@@ -31,6 +31,10 @@ class AppointmentContainer extends React.Component {
       modalOpen: this.props.handleEscape
     });
   }
+
+  handleDoubleClick = () => {
+    this.setState({ modalOpen: true });
+  };
   handleSubmit = e => {
     api.appointments.updateAppointment(
       e.target.id,
@@ -38,7 +42,7 @@ class AppointmentContainer extends React.Component {
       this.state.duration,
       this.state.difficulty
     );
-    this.props.modalClose();
+    this.setState({ modalOpen: false });
   };
 
   // fires when user stops dragging an item.
@@ -61,12 +65,17 @@ class AppointmentContainer extends React.Component {
 
   handleClose = () => {
     this.setState({
-      x: this.props.x,
-      y: this.props.y,
       name: this.props.name,
       duration: this.props.duration,
-      difficulty: this.props.difficulty
+      difficulty: this.props.difficulty,
+      modalOpen: false
     });
+  };
+
+  onDelete = event => {
+    this.setState({ modalOpen: false });
+
+    this.props.handleDelete(event.target.id);
   };
 
   render() {
@@ -86,14 +95,14 @@ class AppointmentContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleSelect={this.handleSelect}
-        onDelete={this.props.handleDelete}
+        handleDelete={this.onDelete}
         handleClose={this.handleClose}
         leftBounds={leftBounds}
         rightBounds={rightBounds}
         topBounds={topBounds}
         difficulty={this.state.difficulty}
         activeModal={this.props.activeModal}
-        buttonDoubleClick={this.props.handleDoubleClick}
+        buttonDoubleClick={this.handleDoubleClick}
         modalClose={this.props.modalClose}
       />
     );

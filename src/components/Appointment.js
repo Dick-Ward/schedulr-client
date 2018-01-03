@@ -42,14 +42,13 @@ const Appointment = props => {
           handleSubmit={props.handleSubmit}
           handleChange={props.handleChange}
           handleSelect={props.handleSelect}
-          onDelete={props.onDelete}
+          handleDelete={props.handleDelete}
           handleClose={props.handleClose}
-          modalOpen={props.modalOpen}
           id={props.id}
           name={props.name}
           duration={props.duration}
           difficulty={props.difficulty}
-          activeModal={props.activeModal}
+          modalOpen={props.modalOpen}
           modalClose={props.modalClose}
         />
       </div>
