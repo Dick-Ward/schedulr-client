@@ -24,4 +24,3 @@ Upcoming changes:
 After forking and cloning down the client repo, change the api call  in services/api.js to `http://localhost:3000`, or whatever address you want to start the back-end on.  Then in the backend, under config/initializers/cors.rb set origins to `http://localhost:3001`, or wherever you want to run the client.
 
 Start the backend with `rails s` and the front with `yarn start`.  Visit the frontend address and you should be up and running.
-
