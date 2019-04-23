@@ -1,5 +1,6 @@
-const API_ROOT = "https://vast-ridge-63077.herokuapp.com";
-// https://vast-ridge-63077.herokuapp.com
+// const API_ROOT = "https://vast-ridge-63077.herokuapp.com";
+const API_ROOT = "http://localhost:3000";
+
 const token = localStorage.getItem("token");
 
 const headers = {
