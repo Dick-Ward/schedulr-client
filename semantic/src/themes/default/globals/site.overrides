@@ -1,7 +1,0 @@
-/*******************************
-        Global Overrides
-*******************************/
-.ui.color2.button {
-  background-color: #F9A0A0;
-  color: #FFFFFF;
-}
