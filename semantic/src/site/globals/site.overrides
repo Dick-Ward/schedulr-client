@@ -1,7 +1,0 @@
-/*******************************
-         Site Overrides
-*******************************/
-.ui.color2.button {
-  background-color: #000000;
-  color: #fff;
-}
