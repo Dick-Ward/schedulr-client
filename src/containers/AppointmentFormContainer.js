@@ -25,8 +25,7 @@ class AppointmentFormContainer extends React.Component {
     if (this.state.name === "" || this.state.duration === "") {
       this.handleError();
     } else {
-      api.appointments
-        .newAppointment(
+      api.appointments.newAppointment(
           this.state.name,
           this.state.duration,
           this.props.currentUser.id,
